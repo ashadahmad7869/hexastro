@@ -7,6 +7,10 @@ updates:
       day: saturday
       timezone: Asia/Kolkata
     open-pull-requests-limit: 5
+    ignore:
+      # Major npm upgrades (Next, React, TypeScript, ESLint...) are done deliberately, not weekly
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     groups:
       minor-and-patch:
         update-types: [minor, patch]
