@@ -315,6 +315,7 @@ export default function LatestPostsList({
             date={featuredPost.date}
             readTime={featuredPost.readTime}
             author={featuredPost.author}
+            coverImage={featuredPost.coverImage}
             featured={true}
             tags={featuredPost.tags}
             contentType={featuredPost.contentType}
@@ -347,6 +348,7 @@ export default function LatestPostsList({
               date={post.date}
               readTime={post.readTime}
               author={post.author}
+              coverImage={post.coverImage}
               tags={post.tags}
               contentType={post.contentType}
             />

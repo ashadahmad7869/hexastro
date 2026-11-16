@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ContentType } from '@/types/content'
+import { getCoverImage } from '@/lib/coverImage'
 
 export interface ArticleCardProps {
   slug: string
@@ -13,26 +14,9 @@ export interface ArticleCardProps {
   featured?: boolean
   tags?: string[]
   contentType?: ContentType
+  coverImage?: string
 }
 
-const getCoverImage = (slug: string) => {
-  switch (slug) {
-    case 'first-post':
-      return 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop'
-    case 'inside-transformer':
-      return 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop'
-    case 'mapping-invisible-mass':
-      return 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop'
-    case 'scientific-computing-python':
-      return 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=800&auto=format&fit=crop'
-    case 'scaling-laws-llm':
-      return 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=800&auto=format&fit=crop'
-    case 'riemann-hypothesis':
-      return 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop'
-    default:
-      return 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop'
-  }
-}
 
 const getTypeBadgeText = (type?: ContentType) => {
   switch (type) {
@@ -62,11 +46,12 @@ export default function ArticleCard({
   author, 
   featured = false,
   tags = [],
-  contentType = 'exploration'
+  contentType = 'exploration',
+  coverImage
 }: ArticleCardProps) {
   const authorName = typeof author === 'string' ? author : author.name
   const authorAvatar = typeof author === 'string' ? '/authors/hexastro.svg' : author.avatar
-  const coverImage = getCoverImage(slug)
+  const coverSrc = getCoverImage(slug, coverImage)
 
   return (
     <div style={{
@@ -112,7 +97,7 @@ export default function ArticleCard({
         borderRadius: '15px 15px 0 0' // Rounds image top corners since parent overflow is disabled
       }}>
         <Image 
-          src={coverImage}
+          src={coverSrc}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"

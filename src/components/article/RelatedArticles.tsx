@@ -37,6 +37,7 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
             date={article.date}
             readTime={article.readTime}
             author={article.author}
+            coverImage={article.coverImage}
           />
         ))}
       </div>

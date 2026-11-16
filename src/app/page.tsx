@@ -133,6 +133,7 @@ export default async function Home(props: { searchParams: Promise<{ search?: str
                   date={post.date}
                   readTime={post.readTime}
                   author={post.author}
+                  coverImage={post.coverImage}
                   featured={false}
                   tags={post.tags}
                   contentType={post.contentType}

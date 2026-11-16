@@ -47,6 +47,12 @@ for (const { file, slug, data, content } of posts) {
     if (!data.paperUrl) err(file, 'debrief needs "paperUrl"')
     if (!data.relatedSlug) err(file, 'debrief needs "relatedSlug" (its concept guide)')
   }
+  if (data.coverImage) {
+    if (!String(data.coverImage).startsWith('/images/')) err(file, 'coverImage must be a local /images/... path')
+    else if (!fs.existsSync(path.join(root, 'public', data.coverImage))) err(file, `coverImage not found: public${data.coverImage}`)
+    else if (fs.statSync(path.join(root, 'public', data.coverImage)).size > 600 * 1024) err(file, `coverImage over 600 KB`)
+    if (!data.coverCredit) err(file, 'coverImage needs "coverCredit" (credit line + licence)')
+  }
   // Figures: local file must exist; credit and licence are mandatory; no hotlinking
   for (const m of content.matchAll(/<Figure\b([\s\S]*?)\/>/g)) {
     const attrs = Object.fromEntries([...m[1].matchAll(/(\w+)="([^"]*)"/g)].map(a => [a[1], a[2]]))
