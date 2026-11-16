@@ -47,6 +47,16 @@ for (const { file, slug, data, content } of posts) {
     if (!data.paperUrl) err(file, 'debrief needs "paperUrl"')
     if (!data.relatedSlug) err(file, 'debrief needs "relatedSlug" (its concept guide)')
   }
+  // Figures: local file must exist; credit and licence are mandatory; no hotlinking
+  for (const m of content.matchAll(/<Figure\b([\s\S]*?)\/>/g)) {
+    const attrs = Object.fromEntries([...m[1].matchAll(/(\w+)="([^"]*)"/g)].map(a => [a[1], a[2]]))
+    if (!attrs.src || !attrs.src.startsWith('/images/')) err(file, `Figure src must be a local /images/... path (got "${attrs.src}")`)
+    else if (!fs.existsSync(path.join(root, 'public', attrs.src))) err(file, `Figure image not found: public${attrs.src}`)
+    else if (fs.statSync(path.join(root, 'public', attrs.src)).size > 600 * 1024) err(file, `Figure image over 600 KB: ${attrs.src}`)
+    for (const k of ['alt', 'credit', 'license']) if (!attrs[k]) err(file, `Figure missing "${k}" (${attrs.src})`)
+  }
+  if (/!\[[^\]]*\]\(https?:/.test(content)) err(file, 'remote Markdown images are not allowed; download the image and use <Figure>')
+
   if (data.aiDrafted && !data.draft) {
     // Reviewer notes and unresolved markers must never reach the live site
     if (/<!--\s*(REVIEW|NOTE|TODO)/i.test(content)) err(file, 'contains reviewer notes (<!-- REVIEW/NOTE/TODO -->)')

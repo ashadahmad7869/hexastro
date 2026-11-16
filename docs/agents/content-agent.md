@@ -53,7 +53,47 @@ Just Step 0, for when the owner asks for changes outside the schedule.
 - Background facts in guides must be standard textbook knowledge. If you're not sure of a number or a historical detail, either leave it out or mark it `[VERIFY: what to check]` in the text. CI blocks merging until these are resolved, so the owner will see them.
 - Never invent quotes, people, results, references or links. Further-reading items must be real; only include ones you have confirmed exist (open the URL).
 - Don't overstate: keep the authors' hedges ("suggests", "tentative", "at 3σ").
-- Do not embed figures from papers. Describe them and link: "(see Figure 3 of the paper)".
+- Figures: follow "Images" below. Never embed an image whose licence you have not confirmed.
+
+## Images (aim for 1–3 per article)
+
+Readers love figures: plots, maps, radio/optical images. Use them, **but only with a licence that allows reuse.**
+
+**1. Check the paper's licence** on its abstract page `https://arxiv.org/abs/<id>` (the "License" link near the PDF/HTML links, pointing to `creativecommons.org/...` or `arxiv.org/licenses/nonexclusive-distrib/1.0/`).
+
+| Licence | Paper figures allowed? |
+|---|---|
+| CC BY 4.0, CC BY-SA 4.0, CC0 | ✅ yes, with credit + licence |
+| CC BY-NC-SA 4.0, CC BY-NC-ND 4.0 | ✅ yes (HexAstro is non-commercial), unmodified, with credit + licence |
+| arXiv non-exclusive distribution licence (default) | ❌ **no**: describe the figure and link to it instead |
+
+**2. Getting a paper figure:** from the HTML version (`https://arxiv.org/html/<id>`, figure files are linked from `<img>` tags there) or the source files (`https://arxiv.org/e-print/<id>`). Do not crop out or alter axes/labels; you may convert format and resize.
+
+**3. When paper figures aren't allowed** (and for concept guides), use openly licensed images of the same object/phenomenon:
+- NASA (most images public domain; credit "NASA/…" as given on the page)
+- ESA/Webb, ESA/Hubble, ESO, NOIRLab/NSF/AURA, NRAO/AUI/NSF, ALMA (ESO/NAOJ/NRAO): generally **CC BY 4.0**, so confirm on each image's page and copy its exact credit line
+- Wikimedia Commons: only files explicitly marked public domain / CC BY / CC BY-SA, crediting the author shown
+
+Never use images from news sites, journals' websites, Google Images or social media.
+
+**4. Store and embed:**
+- Save under `public/images/<slug>/` (e.g. `public/images/paper-2611-01234/fig3.webp`). Convert to **WebP** (or PNG for line plots), max ~1600 px wide, **under 600 KB** (CI enforces this).
+- Embed with the `Figure` component (CI checks the file exists and that `alt`, `credit`, `license` are present):
+
+```mdx
+<Figure
+  src="/images/paper-2611-01234/fig3.webp"
+  alt="Radio map of the jet showing a bright knot about 2 kpc from the core"
+  caption="The jet seen at 5 GHz. The bright knot (arrow) is where the authors argue the flow is shocked."
+  credit="Smith et al. (2026), Fig. 3"
+  license="CC BY 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+  sourceUrl="https://arxiv.org/abs/2611.01234"
+/>
+```
+
+- Write captions for HexAstro readers: say what to look at, not just what the paper's caption says.
+- In the PR body, add an **Images** section listing each file, its source URL and licence, so the owner can double-check.
 
 ## Style guide: write like a person, not a textbook
 
@@ -140,6 +180,9 @@ journalName: "arXiv preprint"        # or the journal, if accepted (check the ar
 ### Paper candidates for the debrief   (concept PRs only)
 1. arXiv:XXXX.XXXXX: <title>: <one line on why it fits>
 
+### Images
+- `public/images/<slug>/fig1.webp`: <source URL>: <licence>
+
 ### Notes for the reviewer
 <anything you were unsure about>
 ```
@@ -153,7 +196,7 @@ npm run lint
 npm run build
 ```
 
-All must pass. Never commit `.env*`, `.vercel/`, or anything outside `content/articles/` (plus `content/syllabus.json` only if the owner asks).
+All must pass. Never commit `.env*`, `.vercel/`, or anything outside `content/articles/` and `public/images/<slug>/` (plus `content/syllabus.json` only if the owner asks).
 
 ## Opening the PR
 
