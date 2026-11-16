@@ -38,6 +38,9 @@ export interface Article {
   aiDrafted?: boolean
   syllabusId?: string
   relatedSlug?: string
+  coverImage?: string
+  coverCredit?: string
+  coverSourceUrl?: string
   contentType: ContentType
   prerequisites?: string[]
   codeLanguages?: string[]

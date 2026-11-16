@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { getCoverImage } from '@/lib/coverImage'
 import { notFound } from 'next/navigation'
 import { contentService } from '@/lib/services/contentService'
 import MDXRenderer from '@/components/article/MDXRenderer'
@@ -23,24 +24,6 @@ export function generateStaticParams() {
   }))
 }
 
-const getCoverImage = (slug: string) => {
-  switch (slug) {
-    case 'first-post':
-      return 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop'
-    case 'inside-transformer':
-      return 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop'
-    case 'mapping-invisible-mass':
-      return 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop'
-    case 'scientific-computing-python':
-      return 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=800&auto=format&fit=crop'
-    case 'scaling-laws-llm':
-      return 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=800&auto=format&fit=crop'
-    case 'riemann-hypothesis':
-      return 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop'
-    default:
-      return 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop'
-  }
-}
 
 export default async function PostPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
@@ -230,6 +213,14 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
               <MDXRenderer source={post.content} />
             </div>
             <PairedPostBox current={post} paired={paired} />
+            {post.coverImage && post.coverCredit && (
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', marginTop: '2rem' }}>
+                Cover image:{' '}
+                {post.coverSourceUrl ? (
+                  <a href={post.coverSourceUrl} target="_blank" rel="noopener noreferrer">{post.coverCredit}</a>
+                ) : post.coverCredit}
+              </p>
+            )}
             {post.aiDrafted && <AIDisclosure />}
           </article>
           
@@ -278,7 +269,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                   >
                     <div style={{ position: 'relative', width: '100%', height: '110px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
                       <Image 
-                        src={getCoverImage(item.slug)} 
+                        src={getCoverImage(item.slug, item.coverImage)} 
                         alt={item.title} 
                         fill 
                         style={{ objectFit: 'cover' }}
@@ -317,7 +308,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                   >
                     <div style={{ position: 'relative', width: '100%', height: '110px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
                       <Image 
-                        src={getCoverImage(item.slug)} 
+                        src={getCoverImage(item.slug, item.coverImage)} 
                         alt={item.title} 
                         fill 
                         style={{ objectFit: 'cover' }}

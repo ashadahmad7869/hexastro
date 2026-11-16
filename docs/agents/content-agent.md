@@ -92,6 +92,8 @@ Never use images from news sites, journals' websites, Google Images or social me
 />
 ```
 
+- **Cover image (every article):** pick one licensed image that shows the topic (e.g. a spectrum for a spectroscopy guide, the paper's key figure or the object itself for a debrief), save it as `public/images/<slug>/cover.webp` (~1200 px wide, under 600 KB) and set in the frontmatter:
+  `coverImage: "/images/<slug>/cover.webp"`, `coverCredit: "<exact credit line>, <licence>"`, `coverSourceUrl: "<image page URL>"`. It appears on the article cards; the credit is shown at the end of the post.
 - Write captions for HexAstro readers: say what to look at, not just what the paper's caption says.
 - In the PR body, add an **Images** section listing each file, its source URL and licence, so the owner can double-check.
 
@@ -122,6 +124,9 @@ difficulty: "Intermediate"          # from syllabus "level"
 syllabusId: "accretion-disks"
 prerequisites: ["Black holes: from stellar to supermassive"]   # titles of earlier guides, if any
 aiDrafted: true
+coverImage: "/images/accretion-disks/cover.webp"
+coverCredit: "NASA/JPL-Caltech, public domain"
+coverSourceUrl: "https://..."
 ---
 
 (Hook paragraph, no heading)
