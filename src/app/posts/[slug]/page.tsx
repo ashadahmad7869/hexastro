@@ -11,6 +11,8 @@ import AuthorBio from '@/components/article/AuthorBio'
 import CitationBox from '@/components/article/CitationBox'
 import PrerequisitesBox from '@/components/article/PrerequisitesBox'
 import TableOfContents from '@/components/article/TableOfContents'
+import PairedPostBox from '@/components/article/PairedPostBox'
+import AIDisclosure from '@/components/article/AIDisclosure'
 
 export const dynamicParams = false
 
@@ -54,6 +56,9 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
 
   // Fetch all articles to display related recommendations in the right sidebar
   const allArticles = contentService.getAllArticles()
+
+  // Concept guide <-> paper debrief pairing (either side may declare relatedSlug)
+  const paired = allArticles.find(p => p.slug !== post.slug && (p.slug === post.relatedSlug || p.relatedSlug === post.slug))
 
   // Select other educational guides (excluding current article)
   const otherGuides = allArticles
@@ -224,6 +229,8 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
             <div className="prose">
               <MDXRenderer source={post.content} />
             </div>
+            <PairedPostBox current={post} paired={paired} />
+            {post.aiDrafted && <AIDisclosure />}
           </article>
           
           <AuthorBio author={authorObj} />

@@ -1,0 +1,49 @@
+name: Review reminders
+
+# Comments are posted by github-actions[bot], so GitHub emails the mention
+# (GitHub never emails you about your own actions, which is how the AI routines appear).
+on:
+  pull_request:
+    types: [opened, reopened, labeled]
+  schedule:
+    - cron: '30 4 * * 2,5'   # Tue & Fri 10:00 IST, an hour after the paper routine
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  notify-new-draft:
+    if: github.event_name == 'pull_request' && (contains(github.event.pull_request.labels.*.name, 'concept') || contains(github.event.pull_request.labels.*.name, 'debrief'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request
+            const marker = '<!-- review-ping -->'
+            const { data: comments } = await github.rest.issues.listComments({ ...context.repo, issue_number: pr.number })
+            if (comments.some(c => c.body.includes(marker))) return
+            const kind = pr.labels.some(l => l.name === 'concept') ? 'concept guide' : 'paper debrief'
+            await github.rest.issues.createComment({ ...context.repo, issue_number: pr.number, body:
+              `${marker}\n@${context.repo.owner} 📬 A new **${kind}** is ready for review.\n\n` +
+              `- Read it on the Vercel preview link below (Vercel posts it on this PR).\n` +
+              `- Leave notes as PR comments; they are never published.\n` +
+              `- Happy with it? **Merge** to publish.` })
+
+  stale-concept-reminder:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: prs } = await github.rest.pulls.list({ ...context.repo, state: 'open', per_page: 50 })
+            const pending = prs.filter(p => p.labels.some(l => l.name === 'concept'))
+            for (const pr of pending) {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: pr.number, body:
+                `@${context.repo.owner} ⏰ This concept hasn't been reviewed yet, so today's paper debrief was skipped.\n\n` +
+                `Read and **merge** this PR, then run the "HexAstro: paper debrief" routine (or ask Claude) to get the paper.` })
+            }
+            core.info(`Reminded on ${pending.length} pending concept PR(s)`)
