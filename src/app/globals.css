@@ -1,34 +1,17 @@
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-color: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+  --border-color: #e5e7eb;
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+  --accent-light-blue: #eff6ff;
+  --accent-purple: #a855f7;
+  --accent-teal: #0d9488;
+  --font-sans: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -37,13 +20,360 @@ body {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Utilities */
+.text-gradient-blue {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(to right, #a855f7, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-teal {
+  background: linear-gradient(to right, #0d9488, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--text-secondary);
+}
+
+/* Prose for MDX */
+.prose {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.prose h2 { font-size: 1.875rem; }
+.prose h3 { font-size: 1.5rem; }
+.prose p { margin-bottom: 1.5rem; }
+
+.prose code {
+  background-color: var(--bg-secondary);
+  color: var(--accent-blue);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--accent-blue);
+  background-color: var(--accent-light-blue);
+  padding: 1.5rem;
+  border-radius: 0 12px 12px 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+.hover\:text-primary:hover {
+  color: var(--accent-blue) !important;
+}
+
+/* Article Detail Layout Grid */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem 2rem;
+}
+
+@media (min-width: 1200px) {
+  .article-layout {
+    grid-template-columns: 220px 1fr 280px; /* Left TOC + Center Prose + Right Widgets */
+    align-items: start;
   }
 }
+
+@media (max-width: 1199px) {
+  .left-sidebar, .right-sidebar {
+    display: none !important;
+  }
+}
+
+/* Redefining prose typography constraints for comfortable reading */
+.prose {
+  max-width: 720px; /* ~65-70 characters per line */
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.75; /* optimal spacing */
+  letter-spacing: -0.011em;
+}
+
+.prose h2, .prose h3 {
+  color: var(--text-primary);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  scroll-margin-top: 100px; /* Offset for sticky header when scrolling */
+}
+
+.prose p {
+  margin-bottom: 1.75rem;
+}
+
+/* KaTeX equations scrolling on mobile to prevent clipping */
+.prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.75rem 0;
+  margin: 1.5rem 0;
+}
+
+/* Figures and captions */
+.prose figure {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.prose figcaption {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* Footnotes styling */
+.prose section.footnotes {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  margin-top: 4rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Remove default hr in markdown footnotes element */
+.prose section.footnotes hr {
+  display: none;
+}
+
+/* Card hover animation */
+.btn-outline-card {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline-card:hover {
+  border-color: var(--accent-blue) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.06);
+}
+
+@media (max-width: 768px) {
+  .prose {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .prose h2 {
+    font-size: 1.5rem;
+    margin-top: 2.25rem;
+  }
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .toc-sidebar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .author-bio-container {
+    flex-direction: column !important;
+    text-align: center;
+    align-items: center !important;
+  }
+}
+
+/* Sidebar Tags & Links Hover */
+.toc-tag:hover {
+  background-color: var(--accent-light-blue) !important;
+  border-color: var(--accent-blue) !important;
+  color: var(--accent-blue) !important;
+}
+
+.sidebar-article-link:hover span:last-child {
+  color: var(--accent-blue) !important;
+}
+
+/* Hero Spotlight Backdrop */
+.hero-spotlight {
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, rgba(37, 99, 235, 0.04) 0%, rgba(255, 255, 255, 0) 70%), var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Clickable News Title with Hover Transitions */
+.news-title-link {
+  display: inline-block;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+  transform-origin: left center;
+}
+
+.news-title-link:hover {
+  color: var(--accent-blue) !important;
+  transform: scale(1.025);
+}
+
+/* Footer Dark Links Hover Styles */
+.nav-link-dark {
+  color: #cbd5e1 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link-dark:hover {
+  color: #ffffff !important;
+}
+
+/* Navbar Hover Dropdown Styles */
+.navbar-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+}
+
+.navbar-dropdown-wrapper:hover .navbar-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar-dropdown-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.navbar-dropdown-link:hover {
+  background-color: var(--bg-secondary);
+  color: var(--accent-blue) !important;
+  padding-left: 1.5rem; /* Smooth indent micro-interaction */
+}
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+---
+draft: true # placeholder - remove this line to publish
+title: "Scientific Computing with Python: NumPy, SciPy, and Beyond"
+date: "2026-06-10"
+excerpt: "A practical guide to high-performance numerical computation in Python."
+tags: ["Programming", "Research"]
+author: "alex-morgan"
+readTime: "15 min read"
+featured: false
+difficulty: Intermediate
+contentType: "guide"
+prerequisites: ["Basic programming knowledge in Python", "Installed Python 3.8+", "Understanding of matrices & algebra"]
+---
+
+Python has become the language of choice for scientific computing. While pure Python is slow for numerical computation, libraries like **NumPy** and **SciPy** bypass this bottleneck by implementing core algorithms in C and Fortran.
+
+## Vectorization and Array Operations
+
+NumPy's core object is the homogeneous multidimensional array (`ndarray`). Operations on these arrays are **vectorized**, meaning loops are executed at the compiled level. 
+
+For instance, computing a dot product of vectors $a$ and $b$:
+
+$$
+a \cdot b = \sum_{i=1}^{n} a_i b_i
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+dot_product = np.dot(a, b)
+```
+
+This vectorization significantly speeds up numerical workloads, allowing researchers to simulate complex systems with minimal execution overhead.

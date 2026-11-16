@@ -1,0 +1,49 @@
+---
+draft: true # placeholder - remove this line to publish
+title: "Relativistic Shock Acceleration: Summerlin & Baring (2012)"
+date: "2026-07-04"
+excerpt: "A deep dive into Diffusive Acceleration of Particles at Oblique, Relativistic, Magnetohydrodynamic Shocks."
+tags: ["Astrophysics", "Research"]
+author: "alex-morgan"
+featured: true
+contentType: "debrief"
+doi: "10.1088/0004-637X/745/2/109"
+arxivId: "1110.1581"
+paperUrl: "https://iopscience.iop.org/article/10.1088/0004-637X/745/2/109"
+paperAuthors: ["E. J. Summerlin", "M. G. Baring"]
+journalName: "The Astrophysical Journal"
+publishYear: 2012
+---
+
+Astrophysical shocks are some of the most energetic phenomena in the universe. In the paper by *Summerlin & Baring (2012)*, we explore how particles are accelerated at oblique, relativistic, magnetohydrodynamic (MHD) shocks. 
+
+## The Physics of Shock Drift Acceleration (SDA)
+
+When charged particles cross a shock front, they gain energy not just from bouncing back and forth (first-order Fermi acceleration), but also from drifting along the convective electric field at the shock surface.
+
+For a particle of charge $q$, rest mass $m$, and Lorentz factor $\gamma$, the equation of motion under the Lorentz force is given by:
+
+$$
+\frac{d(\gamma m \mathbf{v})}{dt} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})
+$$
+
+Where:
+- $\mathbf{E}$ is the electric field.
+- $\mathbf{B}$ is the magnetic field.
+- $\mathbf{v}$ is the particle velocity.
+
+### Frame Transformations
+
+To properly simulate these relativistic shocks, one often transforms between the Normal Incidence Frame (NIF) and the de Hoffmann-Teller (HT) frame. The transformation velocity $V_{HT}$ is defined such that the electric field in the HT frame vanishes:
+
+$$
+V_{HT} = \frac{u_1}{\cos \theta_{B1}}
+$$
+
+If $V_{HT} > c$, the shock is strictly *superluminal*, meaning particles cannot outrun the intersection point of the magnetic field lines along the shock surface, which changes the acceleration microphysics entirely.
+
+### Spectral Indices
+
+A major result of this paper is the calculation of spectral indices $s$ for the non-thermal particle distributions $N(E) \propto E^{-s}$. For highly relativistic parallel shocks, the universal index is typically $s \approx 2.23$, but oblique and superluminal shocks can yield much steeper or flatter spectra depending on scattering parameters.
+
+> This provides critical insights into the origins of Ultra-High-Energy Cosmic Rays (UHECRs) and emission from Active Galactic Nuclei (AGN) jets!

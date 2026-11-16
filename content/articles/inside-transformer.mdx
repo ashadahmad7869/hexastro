@@ -1,0 +1,26 @@
+---
+draft: true # placeholder - remove this line to publish
+title: "Inside the Transformer: How Attention Mechanisms Power Modern AI"
+date: "2026-06-20"
+excerpt: "A deep technical dive into the architecture that changed artificial intelligence forever — from self-attention to multi-head attention."
+tags: ["AI", "Research"]
+author: "alex-morgan"
+readTime: "12 min read"
+featured: true
+difficulty: Advanced
+pinned: true
+contentType: "guide"
+prerequisites: ["Basic understanding of neural networks", "Familiarity with matrix multiplication", "Python & PyTorch basics"]
+---
+
+The Transformer architecture, introduced by Vaswani et al. in 2017, has revolutionized natural language processing and deep learning. At its core is the **self-attention mechanism**.
+
+## Self-Attention Mechanism
+
+Attention allows a model to focus on different parts of the input sequence when producing an output. For a query $Q$, key $K$, and value $V$, scaled dot-product attention is defined as:
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+$$
+
+Where $d_k$ is the dimensionality of the keys. By stacking multiple attention heads, the model learns rich relationships across different representation subspaces.

@@ -1,0 +1,23 @@
+---
+draft: true # placeholder - remove this line to publish
+title: "Scaling Laws and Emergent Intelligence in Large Language Models"
+date: "2026-06-02"
+excerpt: "Why bigger models aren't just better — they're qualitatively different."
+tags: ["AI", "Research"]
+author: "alex-morgan"
+readTime: "10 min read"
+featured: false
+contentType: "exploration"
+---
+
+In deep learning, performance scales predictably with model size, dataset size, and compute budget. These relations are known as **scaling laws**.
+
+## Power-Law Scaling
+
+Kaplan et al. (2020) demonstrated that cross-entropy loss $L$ scales as a power law with compute $C$, dataset size $D$, and parameters $N$:
+
+$$
+L(N) \approx \left(\frac{N_c}{N}\right)^{\alpha_N}
+$$
+
+As parameters increase, we observe **emergent capabilities**—tasks like arithmetic, reasoning, or translation that are impossible for small models but arise suddenly at specific compute thresholds.
