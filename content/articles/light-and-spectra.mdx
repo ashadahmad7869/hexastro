@@ -1,0 +1,117 @@
+---
+title: "Light, Spectra and What Starlight Tells Us"
+date: "2026-11-16"
+excerpt: "We will never touch a star, yet we know what they're made of, how hot they are and how fast they spin. Almost all of it comes from the dark lines in a rainbow."
+tags: ["Foundations", "Spectroscopy"]
+author: "hexastro"
+contentType: "guide"
+difficulty: "Beginner"
+syllabusId: "light-and-spectra"
+prerequisites: []
+aiDrafted: true
+---
+
+In 1835 the philosopher Auguste Comte picked what he thought was a safe example of something humans could never know: the chemical makeup of the stars. We could measure their positions and motions, he argued, but what they were made of would stay forever out of reach. Within about thirty years, physicists were reading the composition of the Sun straight off a strip of coloured light. In 1868, astronomers looking at the Sun's spectrum found a line that matched no element known on Earth. They named the new element after the Greek word for the Sun, *helios*. Helium was found in the Sun decades before anyone isolated it in a lab.
+
+That's the theme of this guide. A beam of starlight that has crossed trillions of kilometres of empty space still carries a detailed record of where it came from. To read that record, we split the light into its colours and look for the gaps.
+
+## A rainbow with a barcode
+
+Push sunlight through a prism (or look at a rainbow, which is the same trick done by raindrops) and you get a smooth smear of colour, from violet through red. That smear is called a **spectrum**: light sorted by **wavelength**, the distance between successive crests of the light wave. Violet light has a wavelength of about 400 nanometres (billionths of a metre) and red about 700. Our eyes see only that narrow window. The full electromagnetic spectrum runs from radio waves metres long down to gamma rays far smaller than an atom.
+
+Now spread the Sun's light out much more finely than a rainbow does. In the early 1800s Joseph von Fraunhofer did this with better optics than anyone before him, and he saw that the smooth smear isn't smooth at all. It is crossed by hundreds of thin dark lines, as if someone had taken a pen to it. We still call the strongest ones **Fraunhofer lines**.
+
+The useful picture here is a supermarket barcode. Every product has its own pattern of stripes, and the scanner doesn't care what the box looks like; it reads the stripes. Every chemical element has its own pattern of dark (or bright) lines at fixed wavelengths. Sodium has a famous close pair in the yellow. Hydrogen has a ladder of lines that get closer together towards the blue. If a star's spectrum contains sodium's pattern, there is sodium in the star.
+
+The analogy breaks in an important way, though. A shop barcode is printed on purpose and is either there or not. A star's lines depend on the conditions in the star as well as what it contains. A hot star can have plenty of an element and still show weak lines from it, because at that temperature the atoms are in the wrong state to absorb. That complication is what turns spectra from a shopping list into a thermometer, a pressure gauge and a speedometer as well.
+
+## Why atoms leave fingerprints
+
+Light comes in packets called **photons**, and each photon carries an energy set by its wavelength:
+
+$$
+E = h\nu = \frac{hc}{\lambda}
+$$
+
+In words: a photon's energy $E$ equals Planck's constant $h$ times its frequency $\nu$. Equivalently, it is $hc$ divided by its wavelength $\lambda$, where $c$ is the speed of light. Short wavelength means high energy, so a blue photon packs more punch than a red one.
+
+Electrons in an atom can't have any energy they like. Quantum mechanics only allows a fixed set of **energy levels**, like the rungs of a ladder with uneven spacing. An electron can jump up a rung by absorbing a photon, but only if the photon's energy matches the gap between rungs *exactly*. Photons with the wrong energy pass straight through. When an electron drops back down, it emits a photon with exactly the energy of the gap.
+
+Hydrogen, the simplest atom, has levels given by a tidy formula:
+
+$$
+E_n = -\frac{13.6\ \text{eV}}{n^2}, \qquad n = 1, 2, 3, \ldots
+$$
+
+This says that the $n$-th rung sits at an energy of $-13.6$ electron-volts divided by $n$ squared. The minus sign means the electron is bound, and $13.6$ eV is what it takes to pull it off completely from the lowest rung. An electron hopping between rungs 2 and 3 matches a photon with a wavelength of about 656 nanometres. That deep red line, called **H-alpha**, is the one that makes glowing hydrogen clouds in astrophotos look pink-red.
+
+Every element has a different nucleus and a different set of electrons, so it has a different ladder and therefore a different set of allowed jumps. That is the fingerprint. Strip an electron off an atom (**ionisation**) and the ladder changes again, so neutral iron and once-ionised iron have different line patterns. Molecules, which can also vibrate and rotate, show thick bands of closely packed lines.
+
+In the 1850s and 1860s, Gustav Kirchhoff and Robert Bunsen worked out the rules for which kind of spectrum you get. These are usually summarised as three cases:
+
+1. A hot, dense object (a glowing solid, or the dense gas deep inside a star) gives a **continuous spectrum**: all colours, no lines.
+2. A hot, thin gas on its own gives an **emission spectrum**: bright lines on a dark background.
+3. A cooler, thin gas in front of a hotter continuous source gives an **absorption spectrum**: the continuous rainbow with dark lines cut out of it.
+
+A star is case 3. Its dense interior shines with a continuous spectrum, and the thinner, cooler outer layer, the **photosphere** and above, absorbs at its own atoms' favourite wavelengths. Those photons are re-emitted in random directions, so far fewer of them continue towards us. The dark lines aren't completely black; they are just much dimmer than the light either side.
+
+## What the lines tell us
+
+Once you can identify the lines, a spectrum becomes several instruments at once.
+
+**Composition.** Which barcodes appear tells you which elements are present. How deep and wide each line is, measured as the **equivalent width**, tells you how much of the element is there, once you correct for temperature and pressure. That correction is the hard part. It needs a model of the star's atmosphere and good laboratory data on each line. In 1925 Cecilia Payne did this carefully for the first time. She showed that stars are overwhelmingly hydrogen and helium, a result that went against the expectations of the day.
+
+**Temperature.** Line strengths depend strongly on temperature. In the coolest stars, molecules survive and their bands dominate. In the hottest stars, most atoms are ionised and many familiar lines fade away. The hydrogen lines visible in optical light peak in stars at around 10,000 K. Cooler than that, too few electrons sit on the second rung, which those lines start from. Hotter, too much hydrogen is ionised. The stellar classes O, B, A, F, G, K, M are really a temperature sequence read off these line patterns.
+
+**Pressure and gravity.** In a dense atmosphere, atoms are jostled by their neighbours while they absorb, which smears each line out (**pressure broadening**). A compact dwarf star has high surface gravity and broad lines. A bloated giant of the same temperature has narrower ones. So the shape of a line can tell a dwarf from a giant.
+
+**Motion.** If the star is moving towards or away from us, its whole barcode slides slightly bluer or redder. That's the **Doppler shift**, and it gets its own guide next. A spinning star shows lines broadened in a characteristic way, because one edge approaches while the other recedes.
+
+**Magnetic fields.** A magnetic field splits some lines into several closely spaced pieces (the **Zeeman effect**). This is how we map magnetic fields on the Sun and other stars.
+
+Astronomers usually report how rich a star is in some element relative to the Sun, using a logarithmic notation. The most common is
+
+$$
+[\mathrm{Fe/H}] = \log_{10}\!\left(\frac{N_\mathrm{Fe}}{N_\mathrm{H}}\right)_\star - \log_{10}\!\left(\frac{N_\mathrm{Fe}}{N_\mathrm{H}}\right)_\odot
+$$
+
+which reads: take the number of iron atoms per hydrogen atom in the star, compare it with the same ratio in the Sun, and take the log. $[\mathrm{Fe/H}] = 0$ means Sun-like. $[\mathrm{Fe/H}] = -1$ means one tenth of the Sun's iron-to-hydrogen ratio, and $-3$ means one thousandth. You'll see this notation in almost every paper about stellar chemistry, including the one we'll cover in the next debrief.
+
+## How we actually observe it
+
+A prism works, but most modern **spectrographs** use a **diffraction grating**: a surface ruled with many fine, parallel grooves that spreads light by wavelength through interference. The light is focused on a narrow slit or an optical fibre, spread out by the grating, and recorded on a digital detector, where each column of pixels corresponds to a slightly different wavelength.
+
+The key number for a spectrograph is its **resolving power**, $R = \lambda / \Delta\lambda$: the wavelength you're looking at divided by the smallest wavelength difference the instrument can separate. Low-resolution instruments, with $R$ in the hundreds or low thousands, can classify a faint galaxy or measure its redshift. Measuring precise abundances from individual lines needs "high-resolution" spectrographs with $R$ in the tens of thousands. These spread a star's light so thinly that you need a big telescope to collect enough photons.
+
+Large surveys take lower-resolution spectra of millions of stars and galaxies, while targeted programmes take exquisite spectra of a handful of rare objects. Wavelength range matters too. Infrared spectra suit cool stars, whose light peaks there. Ultraviolet spectra must be taken from space, because our atmosphere blocks them.
+
+## What we still don't know
+
+Reading a barcode sounds solved, but turning line strengths into accurate numbers is still an active field.
+
+**Model atmospheres are approximations.** Most abundance work treats a star's atmosphere as a set of flat, unmoving layers in *local thermodynamic equilibrium* (LTE), where the atoms' energy levels are populated as if the gas had a single well-defined temperature at each depth. Real atmospheres boil with convection, and in thin outer layers the radiation can push the atoms out of equilibrium. Full 3D, non-LTE calculations are expensive. Switching to them can change the abundances inferred for some elements noticeably, especially in metal-poor stars.
+
+**The Sun itself is debated.** Revisions to the Sun's measured composition over the last two decades lowered the inferred amounts of elements like carbon, nitrogen and oxygen. Those lower values sit uncomfortably with the Sun's interior structure as measured from its oscillations (helioseismology). This "solar abundance problem" matters because the Sun is the reference point for every $[\mathrm{X/H}]$ value.
+
+**Cool stars are messy.** M dwarfs, the most common stars in the galaxy and favourite hosts for exoplanet searches, have spectra so crowded with molecular bands that clean, isolated atomic lines are scarce. Getting their compositions right is important for understanding the planets around them.
+
+**Atomic data has gaps.** Every abundance relies on laboratory or theoretical numbers for how strongly each transition absorbs. For many lines, especially from heavy elements and in the infrared, those numbers are uncertain.
+
+**The oldest stars hold the earliest chemistry.** Stars with $[\mathrm{Fe/H}]$ below about $-3$ formed from gas that had been enriched by very few earlier generations of stars, possibly just one. Their line patterns are our best evidence about the first stars, which we have never observed directly.
+
+## Key terms
+
+- **Spectrum:** light spread out and sorted by wavelength.
+- **Wavelength ($\lambda$):** distance between successive crests of a light wave; sets the photon's energy and colour.
+- **Photon:** a single packet of light energy, $E = hc/\lambda$.
+- **Energy level:** one of the discrete energies an electron in an atom, ion or molecule is allowed to have.
+- **Absorption / emission line:** a dark or bright feature at a wavelength matching a jump between two energy levels.
+- **Equivalent width:** a measure of a line's total strength: the width of a perfectly black line that would remove the same amount of light.
+- **Resolving power ($R$):** $\lambda/\Delta\lambda$, how finely a spectrograph separates nearby wavelengths.
+- **[Fe/H]:** the log of a star's iron-to-hydrogen ratio relative to the Sun's.
+
+## Further reading
+
+- OpenStax *Astronomy 2e*, [§5.3 Spectroscopy in Astronomy](https://openstax.org/books/astronomy-2e/pages/5-3-spectroscopy-in-astronomy): a free, gentle textbook introduction to continuous, emission and absorption spectra.
+- OpenStax *Astronomy 2e*, [§5.5 Formation of Spectral Lines](https://openstax.org/books/astronomy-2e/pages/5-5-formation-of-spectral-lines): the Bohr-atom picture of where lines come from, and how ionisation and temperature change them.
+- OpenStax *Astronomy 2e*, [§17.3 The Spectra of Stars (and Brown Dwarfs)](https://openstax.org/books/astronomy-2e/pages/17-3-the-spectra-of-stars-and-brown-dwarfs): how line patterns map onto the OBAFGKM temperature sequence.
