@@ -16,7 +16,13 @@ You are invoked in one of three modes: `concept`, `paper` or `revise`. Every mod
 1. List open PRs labelled `concept` or `debrief`.
 2. For each, read all PR comments and review comments from `@ashadahmad7869` that are newer than the branch's latest commit.
 3. Apply the requested changes on that PR's branch, run the checks (below), commit, push, and reply on the PR with a short summary of what changed.
-4. The owner's comments are **private notes to you**. Use them to improve the article; never paste them into the article, and never add a "my take" section.
+4. **Record the lesson.** If a comment reveals a general preference (tone, structure, word choice, how much maths), append it as one instruction line to `docs/agents/style-lessons.md` in the same commit. One-off factual fixes don't go there.
+5. **Learn from the owner's direct edits.** For `concept`/`debrief` PRs merged since the last entry in `style-lessons.md`, check whether the owner pushed commits of their own to the branch (`gh pr view <n> --json commits`). If so, compare your last version with the merged one (`git diff <your-last-sha> <merge-sha> -- content/articles/`) and record any general pattern as a lesson. Commit lesson updates on your current PR branch (or, if there is none, include them in the next PR you open).
+6. The owner's comments are **private notes to you**. Use them to improve the article; never paste them into the article, and never add a "my take" section.
+
+## Before writing anything
+
+Read `docs/agents/style-reference.md` (how HexAstro writes) and `docs/agents/style-lessons.md` (the owner's own rules, which take priority). Run the self-check at the end of the style reference before opening the PR.
 
 ## Mode `concept` (scheduled Mon & Thu, 23:00 IST)
 
@@ -201,7 +207,7 @@ npm run lint
 npm run build
 ```
 
-All must pass. Never commit `.env*`, `.vercel/`, or anything outside `content/articles/` and `public/images/<slug>/` (plus `content/syllabus.json` only if the owner asks).
+All must pass. Never commit `.env*`, `.vercel/`, or anything outside `content/articles/`, `public/images/<slug>/` and `docs/agents/style-lessons.md` (plus `content/syllabus.json` only if the owner asks).
 
 ## Opening the PR
 
