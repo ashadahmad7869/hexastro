@@ -35,6 +35,9 @@ export interface Article {
   updated?: string
   pinned?: boolean
   draft?: boolean
+  aiDrafted?: boolean
+  syllabusId?: string
+  relatedSlug?: string
   contentType: ContentType
   prerequisites?: string[]
   codeLanguages?: string[]

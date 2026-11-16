@@ -3,6 +3,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeHighlight from 'rehype-highlight'
 import CustomCodeBlock from './CustomCodeBlock'
+import Figure from './Figure'
 import React, { ReactNode } from 'react'
 
 interface MDXRendererProps {
@@ -40,6 +41,7 @@ const slugify = (text: string) => {
 }
 
 const components = {
+  Figure,
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => <CustomCodeBlock {...props} />,
   h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
     const text = getText(children)

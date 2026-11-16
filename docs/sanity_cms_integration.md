@@ -70,7 +70,7 @@ If you want guest readers to submit posts without joining your dashboard:
 If you decide to rename the content types (e.g., changing "Research Papers" to "Research Briefs" or "Essays" to "Articles") in the future, you will need to update the names in these key files:
 
 ### A. Navigation Menu Labels
-* **File**: [src/components/layout/Navbar.tsx](file:///Users/ashadahmad/Desktop/Asad/website/blog/src/components/layout/Navbar.tsx)
+* **File**: [src/components/layout/Navbar.tsx](../src/components/layout/Navbar.tsx)
 * Change the display strings inside the `.navbar-dropdown` div:
   ```tsx
   <div className="navbar-dropdown">
@@ -81,7 +81,7 @@ If you decide to rename the content types (e.g., changing "Research Papers" to "
   ```
 
 ### B. Filter Tab Labels & Router Mappings
-* **File**: [src/components/article/LatestPostsList.tsx](file:///Users/ashadahmad/Desktop/Asad/website/blog/src/components/article/LatestPostsList.tsx)
+* **File**: [src/components/article/LatestPostsList.tsx](../src/components/article/LatestPostsList.tsx)
 * Update the filter pills list array (e.g., change `'Research Papers 📄'` to `'Research Briefs 📄'`):
   ```tsx
   ['Guides 🎓', 'Research Papers 📄', 'Essays ✍️']
@@ -94,7 +94,7 @@ If you decide to rename the content types (e.g., changing "Research Papers" to "
   ```
 
 ### C. Article Cards Badges
-* **File**: [src/components/article/ArticleCard.tsx](file:///Users/ashadahmad/Desktop/Asad/website/blog/src/components/article/ArticleCard.tsx)
+* **File**: [src/components/article/ArticleCard.tsx](../src/components/article/ArticleCard.tsx)
 * Update the text returning helpers for overlays:
   ```typescript
   const getTypeBadgeText = (type?: ContentType) => {
