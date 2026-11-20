@@ -1,0 +1,138 @@
+---
+title: "Blackbody Radiation: How a Star's Colour Gives Away Its Temperature"
+date: "2026-11-20"
+excerpt: "Blue stars are hotter than red ones: the opposite of your bathroom taps. The reason is one curve, and it lets us take a star's temperature from across the galaxy."
+tags: ["Foundations", "Stars", "Radiation"]
+author: "hexastro"
+contentType: "guide"
+difficulty: "Beginner"
+syllabusId: "blackbody-radiation"
+prerequisites: ["Light, Spectra and What Starlight Tells Us"]
+aiDrafted: true
+coverImage: "/images/blackbody-radiation/cover.webp"
+coverCredit: "ESO/Y. Beletsky, CC BY 4.0"
+coverSourceUrl: "https://www.eso.org/public/images/eso0940a/"
+---
+
+Every bathroom tap in the world agrees: red means hot, blue means cold. The stars disagree. Look at Orion on a winter night and you'll see orange Betelgeuse at one shoulder and blue-white Rigel at the foot. Rigel's surface is roughly three times hotter. In the sky, blue is the hot one.
+
+The taps aren't exactly wrong. They borrow red from fire and blue from ice. But the physics of glowing things runs the other way, and once you see why, a star's colour becomes a thermometer you can read from across the galaxy.
+
+## The stove-ring experiment
+
+Turn on an electric hob and hold your hand above it. For the first few seconds you see nothing, but you can already feel heat on your palm. The ring is glowing, just in **infrared**, light with wavelengths too long for your eyes. As it heats up, a dull red appears, then a brighter orange. If a hob could go much hotter it would turn yellow, then white, then bluish-white.
+
+Two things happen together as the temperature rises:
+
+1. The object gets **brighter at every wavelength**, not just some.
+2. The **peak** of its light slides towards shorter, bluer wavelengths.
+
+That is the whole story of this guide in two lines. The rest is making it exact.
+
+You are part of this story too. Your skin, at about 37°C, glows. The peak of its light sits around 9 micrometres, deep in the infrared, which is why thermal cameras can see people in the dark. Your body radiates roughly a kilowatt this way, while soaking up nearly as much back from the walls of the room.
+
+## What a "blackbody" is
+
+Physicists simplify this with an idealised object called a **blackbody**: something that absorbs every bit of light that falls on it, at every wavelength, reflecting nothing. The name is a little misleading, because a hot blackbody glows brilliantly. "Black" refers only to what it does with incoming light.
+
+The best lab version is a hollow box with a tiny hole. Light that wanders into the hole bounces around inside and almost never finds its way back out, so the hole looks perfectly black. Heat the box, and the light leaking from the hole has a spectrum that depends on *only one thing*: the temperature of the walls. It doesn't matter whether the box is made of iron or clay.
+
+That's why it is such a powerful idea. If something glows like a blackbody, you can read its temperature from its light alone, without knowing what it's made of.
+
+## The physics: one curve, two rules
+
+In 1900 Max Planck found the formula for the shape of that light. To make it work he had to assume that light is emitted in packets, which became one of the founding moments of quantum physics. **Planck's law** gives the brightness of a blackbody at wavelength $\lambda$ and temperature $T$:
+
+$$
+B_\lambda(T) = \frac{2hc^2}{\lambda^5}\,\frac{1}{e^{hc/\lambda k T} - 1}
+$$
+
+Here $h$ is Planck's constant, $c$ the speed of light and $k$ Boltzmann's constant. You don't need to memorise it. Read it as a tug-of-war. The $1/\lambda^5$ factor wants more light at short wavelengths. The exponential term kills short wavelengths off unless the temperature is high enough to make such energetic photons. The result is a hump, and where the hump sits depends on $T$.
+
+<Figure
+  src="/images/blackbody-radiation/planck-curves.webp"
+  alt="Three blackbody curves on a log scale for 10,000 K, 5,772 K and 3,500 K. The hotter curves lie above the cooler ones at every wavelength and peak further to the left: at 290, 502 and 828 nanometres respectively."
+  caption="Three blackbodies at star-like temperatures. Notice two things: the hotter curve is above the cooler ones everywhere, and its peak sits further left (bluer). The Sun's peak lands in the middle of the visible band; a 3,500 K giant peaks in the infrared and looks orange-red."
+  credit="HexAstro, computed from Planck's law"
+  license="CC BY 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+/>
+
+Two simple rules fall out of the curve.
+
+**Wien's law** says where the peak is:
+
+$$
+\lambda_\text{peak} = \frac{2.898\ \text{mm K}}{T}
+$$
+
+Double the temperature and the peak wavelength halves. The Sun's surface, at about 5,772 K, peaks near 500 nanometres, blue-green light right in the middle of what we see. Your body, at 310 K, peaks near 9 micrometres. The faint afterglow of the Big Bang, at 2.7 K, peaks near 1 millimetre, in microwaves.
+
+The Sun peaks in blue-green, so why doesn't it look green? Because its curve is broad: it pours out every visible colour in roughly comparable amounts, and our eyes add that mixture up as white. A single peak wavelength isn't a colour; the whole curve is.
+
+**The Stefan–Boltzmann law** says how much light comes out in total:
+
+$$
+F = \sigma T^4
+$$
+
+$F$ is the power radiated per square metre of surface and $\sigma$ is a constant ($5.67 \times 10^{-8}$ W m⁻² K⁻⁴). That fourth power is brutal. Double the temperature and each square metre shines **16 times** brighter. A square metre of the Sun's surface radiates about 63 megawatts, roughly the output of a small power station.
+
+For a whole star of radius $R$, multiply by its surface area to get its **luminosity**, the total power it emits:
+
+$$
+L = 4\pi R^2 \sigma T^4
+$$
+
+This one line ties together a star's power, size and temperature. Know any two and you get the third. It's why a cool red giant can still be enormously luminous: it makes up for its low temperature with a gigantic surface.
+
+## Where the analogy breaks: stars aren't perfect blackbodies
+
+Here's the honest catch. A star is not a box with a hole. In [our guide to spectra](/posts/light-and-spectra) we saw that a star's cooler outer layers carve dark absorption lines into its light. Hot stars also show big steps in their spectra where hydrogen starts absorbing. And the edge of the Sun's disc looks dimmer than the centre, because there we see shallower, cooler gas.
+
+So astronomers define a star's **effective temperature**, $T_\text{eff}$: the temperature a perfect blackbody of the same size would need in order to emit the same total power. It's the $T$ that makes $L = 4\pi R^2 \sigma T_\text{eff}^4$ true. For the Sun it's 5,772 K. For most stars the blackbody curve is a good outline of the overall shape, and the lines are the detail written on top.
+
+And some light isn't thermal at all. Electrons spiralling in magnetic fields near black holes and in supernova remnants produce **synchrotron radiation**. Its spectrum is a smooth slope (a power law) with no hump and no single temperature. When an astronomer says a source "isn't a blackbody", that's often the first suspect.
+
+## How we actually take a star's temperature
+
+**By its colour.** Measure a star's brightness through two filters, say blue and red. The ratio, called a **colour index**, tracks where the curve peaks, so it tracks temperature. This works for millions of stars at once. The Gaia satellite's blue and red photometers do exactly this. In [our last debrief](/posts/paper-2611-13115), the team took the temperature of a star 280,000 light-years away, about 4,700 K, from its Gaia colours alone.
+
+There's a trap: interstellar dust scatters blue light more than red, so a star behind dust looks redder and cooler than it is. This **reddening** has to be corrected using dust maps, otherwise every temperature comes out too low.
+
+**By its spectrum.** The pattern and strength of absorption lines depend steeply on temperature, as the OBAFGKM sequence showed. Fitting a full spectrum with model atmospheres gives $T_\text{eff}$ along with gravity and composition.
+
+**By its size.** The most direct route skips models almost entirely. An **interferometer** links several telescopes to act like one giant one and measures a star's angular diameter, often just a few thousandths of an arcsecond. Combine that with the total light we receive and the Stefan–Boltzmann law hands you $T_\text{eff}$. These measurements anchor the temperature scale that every other method is calibrated against.
+
+**By fitting everything.** Collect brightness from ultraviolet to infrared and you get the star's **spectral energy distribution** (SED). Fit a blackbody, or better a model atmosphere, to the whole thing. Bumps that don't fit are often the most interesting part: extra infrared light can reveal a warm dusty disc where planets may be forming.
+
+The most famous blackbody of all is not a star. In the early 1990s, NASA's COBE satellite measured the spectrum of the cosmic microwave background, the light left over from the hot early universe. It matched Planck's curve for a temperature of 2.725 K so closely that it's often called the most perfect blackbody ever measured. That perfection is itself evidence that the early universe was hot, dense and in equilibrium.
+
+## What we still don't know
+
+**The temperature scale has wobbles.** Even for nearby benchmark stars, temperatures from different methods can disagree at the level of a few per cent. Interferometric diameters depend on how the star's edge darkening is modelled. Small offsets matter, because exoplanet sizes are measured relative to their star.
+
+**Cool, small stars are hard.** Red dwarfs are the most common stars in the galaxy and the favourite hosts for small-planet searches. Their spectra are thick with molecules and far from blackbody, and how well models predict their radii and temperatures is still debated.
+
+**Dust and temperature can mimic each other.** A hot star behind dust and a cooler star in the clear can have similar colours. Separating the two needs good dust maps or spectra, and in crowded, dusty regions of the galaxy both are hard to get.
+
+**The cosmic background may not be perfect after all.** Theory predicts tiny distortions from a perfect blackbody, imprinted by energy injected in the early universe. They are far below what COBE could detect, and measuring them would open a new window on the first months of cosmic history. Better instruments have been proposed.
+
+**Strange new objects.** JWST has found compact, very red sources in the early universe, the so-called "little red dots", whose light doesn't fit a simple stellar or quasar picture. Some proposals involve very dense gas glowing almost like a blackbody around a growing black hole. Reading their spectral energy distributions correctly is one of the live debates of the moment.
+
+## Key terms
+
+- **Blackbody:** an idealised object that absorbs all light falling on it; when hot, its glow depends only on its temperature.
+- **Planck's law:** the formula for a blackbody's brightness at each wavelength.
+- **Wien's law:** the peak wavelength is inversely proportional to temperature, $\lambda_\text{peak} = 2.898\ \text{mm K}/T$.
+- **Stefan–Boltzmann law:** power per unit area grows as $T^4$.
+- **Luminosity:** a star's total power output, $L = 4\pi R^2\sigma T_\text{eff}^4$.
+- **Effective temperature ($T_\text{eff}$):** the temperature of a blackbody with the same size and total power as the star.
+- **Colour index:** the brightness difference between two filters, used as a thermometer.
+- **Spectral energy distribution (SED):** an object's brightness across a wide range of wavelengths.
+
+## Further reading
+
+- OpenStax *Astronomy 2e*, [§5.2 The Electromagnetic Spectrum](https://openstax.org/books/astronomy-2e/pages/5-2-the-electromagnetic-spectrum): a free textbook introduction to radiation and temperature, including Wien's and the Stefan–Boltzmann laws.
+- OpenStax *Astronomy 2e*, [§5.1 The Behavior of Light](https://openstax.org/books/astronomy-2e/pages/5-1-the-behavior-of-light): the background on light as a wave and as photons.
+- NASA LAMBDA, [COBE FIRAS overview](https://lambda.gsfc.nasa.gov/product/cobe/firas_overview.html): the instrument that measured the cosmic microwave background's blackbody spectrum.
