@@ -25,6 +25,7 @@ export const authorsRegistry: Record<string, Author> = {
     bio: 'I work on blazars at the Physical Research Laboratory (PRL), Ahmedabad: how relativistic jets accelerate particles to extreme energies, and the multi-messenger emission they produce. I also observe blazars from Mount Abu Observatory.',
     socials: {
       website: 'https://ashadahmad7869.github.io/',
+      linkedin: 'https://www.linkedin.com/in/ashadahmad0803/',
     },
   },
 }

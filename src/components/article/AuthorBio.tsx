@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Author } from '@/types/content'
+import SocialLinks from './SocialLinks'
 import { getRegisteredAuthor } from '@/lib/services/contentService'
 
 interface AuthorBioProps {
@@ -11,13 +12,6 @@ interface AuthorBioProps {
 
 export default function AuthorBio({ author, label }: AuthorBioProps) {
   const hasProfile = Boolean(getRegisteredAuthor(author.id))
-  const links = [
-    author.socials?.website && { href: author.socials.website, text: 'Website' },
-    author.socials?.linkedin && { href: author.socials.linkedin, text: 'LinkedIn' },
-    author.socials?.github && { href: author.socials.github, text: 'GitHub' },
-    author.socials?.twitter && { href: author.socials.twitter, text: 'X / Twitter' },
-  ].filter(Boolean) as { href: string; text: string }[]
-
   return (
     <div
       style={{
@@ -63,13 +57,7 @@ export default function AuthorBio({ author, label }: AuthorBioProps) {
         <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           {author.bio || 'Scientific writer and contributor at HexAstro.'}
         </p>
-        {links.length > 0 && (
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.5rem', fontSize: '0.8125rem' }}>
-            {links.map(l => (
-              <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer me">{l.text}</a>
-            ))}
-          </div>
-        )}
+        <SocialLinks socials={author.socials} />
       </div>
     </div>
   )

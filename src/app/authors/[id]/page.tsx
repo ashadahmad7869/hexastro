@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { authorsRegistry, contentService } from '@/lib/services/contentService'
 import ArticleCard from '@/components/article/ArticleCard'
+import SocialLinks from '@/components/article/SocialLinks'
 import type { Article } from '@/types/content'
 
 export const dynamicParams = false
@@ -28,13 +29,6 @@ export default async function AuthorPage(props: { params: Promise<{ id: string }
   const all = contentService.getAllArticles()
   const written = all.filter((p) => authorId(p.author) === id)
   const reviewed = all.filter((p) => p.reviewer?.id === id && authorId(p.author) !== id)
-
-  const links = [
-    author.socials?.website && { href: author.socials.website, text: 'Website' },
-    author.socials?.linkedin && { href: author.socials.linkedin, text: 'LinkedIn' },
-    author.socials?.github && { href: author.socials.github, text: 'GitHub' },
-    author.socials?.twitter && { href: author.socials.twitter, text: 'X / Twitter' },
-  ].filter(Boolean) as { href: string; text: string }[]
 
   const section = (heading: string, posts: Article[]) =>
     posts.length > 0 && (
@@ -81,13 +75,7 @@ export default async function AuthorPage(props: { params: Promise<{ id: string }
               {author.bio}
             </p>
           )}
-          {links.length > 0 && (
-            <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-              {links.map((l) => (
-                <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer me">{l.text}</a>
-              ))}
-            </div>
-          )}
+          <SocialLinks socials={author.socials} size="md" />
         </div>
       </header>
 
