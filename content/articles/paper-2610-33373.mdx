@@ -1,0 +1,99 @@
+---
+title: "Proxima Centauri Looks Slightly Bigger and Cooler in a Fresh Look at Old Data"
+date: "2026-11-22"
+excerpt: "Five nights of interferometry, reanalysed together, put the nearest star at about 5% wider and roughly 150 K cooler than often assumed. The shift is about 2σ, a nudge rather than a revolution."
+tags: ["Stars", "Interferometry", "Exoplanet hosts"]
+author: "hexastro"
+reviewedBy: "ashad-ahmad"
+contentType: "debrief"
+difficulty: "Intermediate"
+aiDrafted: true
+relatedSlug: "blackbody-radiation"
+arxivId: "2610.33373"
+paperUrl: "https://arxiv.org/abs/2610.33373"
+paperAuthors: ["N. Anugu", "A. Gallenne", "P. Kervella", "A. D. Rains"]
+publishYear: 2026
+journalName: "The Astrophysical Journal (accepted)"
+coverImage: "/images/paper-2610-33373/cover.webp"
+coverCredit: "ESA/Hubble & NASA, CC BY 4.0"
+coverSourceUrl: "https://esahubble.org/images/potw1343a/"
+---
+
+How do you measure the size of a star that every telescope on Earth sees as a point of light? Proxima Centauri is the closest star to the Sun, and the nearest known star with a planet, yet its disc spans only about 1.15 thousandths of an arcsecond. That's like a coin 2 cm across seen from about 3,600 km away.
+
+A new paper by Narsireddy Anugu (CHARA Array, Georgia State University), Alexandre Gallenne (Universidad de Tarapacá, Chile) and colleagues takes another run at that tiny disc. They combined archival data from five nights spread over five years, and conclude that Proxima is a little bigger, and so a little cooler, than the most precise earlier measurement said. The paper, [*Proxima Centauri's Angular Diameter Revisited*](https://arxiv.org/abs/2610.33373), has been accepted in *The Astrophysical Journal*.
+
+## The backstory: a thermometer made of a ruler
+
+In [our guide to blackbody radiation](/posts/blackbody-radiation) we met the cleanest way to take a star's temperature: measure how big it looks and how much light it sends us, and the Stefan–Boltzmann law does the rest. The paper uses exactly that idea:
+
+$$
+T_\text{eff} = \left(\frac{4F_\text{bol}}{\sigma\,\theta^2}\right)^{1/4}
+$$
+
+Here $F_\text{bol}$ is the **bolometric flux**, the total light from the star arriving on each square centimetre of Earth, summed over all wavelengths. $\theta$ is the star's angular diameter and $\sigma$ is the Stefan–Boltzmann constant. In words: spread the light you catch over the disc you see, and ask how hot a blackbody would have to be to shine that brightly. Neat bonus: the distance cancels out. You need it for the star's size in kilometres, but not for its temperature.
+
+The catch is in the $\theta^2$. Because temperature goes as one over the square root of the angular size, a diameter that's 5% too small gives a temperature that's about 2% too high. For a star the size of Proxima, getting $\theta$ right to a few per cent is genuinely hard.
+
+Proxima is a **red dwarf** (an M dwarf): about an eighth of the Sun's mass, and small enough to be churning, or convective, all the way through. It's the benchmark that models of such stars get tested against, so published diameters that disagree by several per cent are a problem.
+
+## What they did
+
+They used an **interferometer**, a set of telescopes linked so they act like one telescope as wide as the distance between them. Specifically, PIONIER at ESO's Very Large Telescope Interferometer in Chile, which combines light from four telescopes in the near-infrared *H* band (1.51–1.76 micrometres).
+
+An interferometer doesn't take a picture of the disc. It measures how crisp the interference fringes are, a quantity called the **visibility**. A point source gives perfectly crisp fringes; a bigger star washes them out more as the telescopes are spread further apart. Here's the difficulty: Proxima is only **partially resolved**. Even on the longest baselines its fringes never wash out completely, so its size has to be read from a gentle downward slope rather than from the point where the fringes vanish. That makes the answer sensitive to small calibration errors.
+
+The team went back to the European Southern Observatory's archive and pulled the raw data from five observing runs: two in 2014, already published by Rabus and colleagues in 2019, and three from 2017 and 2019 that had never been published. They reduced all five the same way and fitted them together with one common diameter. To avoid letting a few over-confident points dominate, they set a minimum uncertainty of 5% on every measurement and estimated the error bars from 500 refits of randomly resampled data.
+
+<Figure
+  src="/images/paper-2610-33373/fig2.webp"
+  alt="Squared visibility of Proxima Centauri plotted against baseline over wavelength, from about 25 to 85. Hundreds of black data points fall smoothly from about 0.95 to about 0.58, with green uniform-disc and red PHOENIX model curves running through them. A lower panel shows residuals scattered around zero."
+  caption="All five nights on one plot. Moving right means telescopes further apart, which means finer detail. A point source would sit flat at 1.0; Proxima's fringes fade steadily but never get near zero, which is what 'partially resolved' looks like. The size of the star is hidden in how steep that slope is."
+  credit="Anugu et al. (2026), Fig. 2"
+  license="CC BY 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+  sourceUrl="https://arxiv.org/abs/2610.33373"
+/>
+
+There is one more twist, and it's the same one our guide warned about. A star isn't a flat, evenly lit disc. Its edge looks darker than its centre, because near the edge we see shallower, cooler gas. This **limb darkening** makes the star look slightly smaller than it is if you ignore it. The team first fitted a plain **uniform disc**, then corrected for limb darkening using profiles from several computer models of M-dwarf atmospheres, with a model called PHOENIX as their reference. They tuned the PHOENIX profile until the temperature that went into the model matched the temperature that came out of the Stefan–Boltzmann formula.
+
+## What they found
+
+The joint uniform-disc fit gives an angular diameter of 1.117 ± 0.024 milliarcseconds. That's 4.8% larger than the 1.066 ± 0.007 found from the 2014 data alone, a difference of 2.0σ. After the limb-darkening correction, the diameter is 1.154 ± 0.026 milliarcseconds.
+
+Combine that with Proxima's distance from the Gaia satellite, 1.30 parsecs (about 4.2 light-years), and you get a radius of 0.162 ± 0.004 times the Sun's. That's about 113,000 km, a bit over one and a half times the radius of Jupiter. The earlier PIONIER result was 0.154.
+
+Feed the diameter and a bolometric flux taken from earlier work into the Stefan–Boltzmann formula and the temperature comes out at 2,833 ± 49 K. That's under half the Sun's 5,772 K. By Wien's law, a blackbody that cool peaks near 1 micrometre, just beyond what our eyes can see. The new value sits about 147 K below an earlier estimate of 2,980 ± 80 K by Ribas and colleagues, a 1.6σ difference. On a standard temperature scale it would nudge Proxima from type M5.5 to about M6.
+
+A search of the same data for a faint companion close to the star found nothing reaching the 3σ detection threshold.
+
+## Why it matters
+
+Two things make this more than a decimal-place adjustment.
+
+First, the bigger radius lines up with an old puzzle. A widely used set of models for how low-mass stars evolve predicts a radius of about 0.148 for a star of Proxima's mass and age, and the new value is roughly 10% larger. Red dwarfs that come out "inflated" compared with models have been reported before, and one suggested explanation is strong magnetic fields hindering convection. The authors point to two nearby red dwarfs of almost the same mass, GJ 65 A and B, whose radii (0.165 and 0.159) are similar to Proxima's new one. Proxima also has a roughly seven-year activity cycle, so they raise the possibility that magnetism affects its size, or how big it looks, while noting that their measurements from 2014, 2017 and 2019 show no significant change in size.
+
+Second, Proxima's planet. As the authors note, interpreting Proxima b, including whether it could be habitable, starts from the properties of its star.
+
+## The fine print
+
+A sceptic's first question: is Proxima really bigger, or did this team just process the data differently? The authors take it seriously. The sizes they adopted for their calibration stars match those used in the 2014 study. When they fit each of the 2014 nights on its own after their re-reduction, they get 1.106 ± 0.057 and 1.121 ± 0.060 milliarcseconds, already on the large side, and the three newer nights agree. So no single night drives the result. The authors conclude that the remaining offset "may reflect differences in data reduction, fitting, or uncertainty treatment" (Section V.1). At about 2σ, this is a tension worth chasing, not a settled correction.
+
+Their error bars are also more than three times wider than the earlier study's, because they treated calibration errors more conservatively.
+
+The limb-darkened diameter isn't measured directly; it depends on which atmosphere model you trust. Swapping between five other model grids moves the radius between 0.160 and 0.163 solar radii. The temperature also leans on the adopted bolometric flux, and the authors note that models and observations of M-dwarf spectra are known to disagree, especially in visible light. A second, independent flux estimate came out consistent, which helps.
+
+The comparison with evolution models is explicitly "qualitative": those model tracks don't cover Proxima's higher-than-solar abundance of heavy elements. And the companion search covers only a tiny patch of sky around the star; it says nothing about companions outside that patch.
+
+What would settle it: a sharper look. Future observations with BIFROST, an upcoming instrument at the VLTI, could resolve Proxima more strongly and measure its limb darkening directly instead of borrowing it from models. Push the fringes closer to vanishing and the slope stops being the only clue: the point of light we started with would finally get a properly measured edge.
+
+## Jargon box
+
+- **Angular diameter:** how wide a star looks on the sky, here in milliarcseconds (thousandths of 1/3,600 of a degree).
+- **Bolometric flux:** the total light from the star reaching us per unit area, across all wavelengths.
+- **Interferometer:** several telescopes combined to act like one with a diameter equal to their separation.
+- **Visibility:** how crisp the interference fringes are; it drops as a source gets more resolved.
+- **Partially resolved:** big enough to soften the fringes, too small to wash them out completely.
+- **Limb darkening:** the edge of a star's disc looks dimmer than its centre.
+- **Uniform disc:** the simplest model of a star, an evenly lit circle with no limb darkening.
+- **σ (sigma):** a measure of how surprising a difference is given the error bars; 2σ is suggestive, not conclusive.
