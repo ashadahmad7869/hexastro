@@ -1,4 +1,4 @@
-export default function AIDisclosure() {
+export default function AIDisclosure({ reviewerName }: { reviewerName?: string }) {
   return (
     <p style={{
       marginTop: '2.5rem',
@@ -8,7 +8,7 @@ export default function AIDisclosure() {
       fontStyle: 'italic',
       color: 'var(--text-tertiary, var(--text-secondary))',
     }}>
-      Drafted with AI · reviewed and edited by HexAstro.
+      Drafted with AI · reviewed and edited by {reviewerName ?? 'HexAstro'}.
     </p>
   )
 }

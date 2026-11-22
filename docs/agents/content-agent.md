@@ -125,6 +125,7 @@ date: "2026-11-16"
 excerpt: "One or two sentences that make someone want to read it."
 tags: ["High-energy", "Black holes"]
 author: "hexastro"
+reviewedBy: "ashad-ahmad"
 contentType: "guide"
 difficulty: "Intermediate"          # from syllabus "level"
 syllabusId: "accretion-disks"
@@ -154,6 +155,7 @@ date: "2026-11-17"
 excerpt: "One-sentence summary of what was found."
 tags: ["High-energy"]
 author: "hexastro"
+reviewedBy: "ashad-ahmad"
 contentType: "debrief"
 difficulty: "Intermediate"
 aiDrafted: true

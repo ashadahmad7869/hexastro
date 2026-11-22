@@ -8,6 +8,7 @@ export interface Author {
     twitter?: string
     github?: string
     linkedin?: string
+    website?: string
   }
 }
 
@@ -27,6 +28,7 @@ export interface Article {
   date: string
   readTime: string
   author: Author | string
+  reviewer?: Author
   tags: string[]
   featured: boolean
   headings: Heading[]

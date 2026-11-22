@@ -14,16 +14,23 @@ export const authorsRegistry: Record<string, Author> = {
     id: 'hexastro',
     name: 'HexAstro',
     avatar: DEFAULT_AVATAR,
-    role: 'Editor',
-    bio: 'HexAstro explains the fundamentals of astrophysics and pairs each one with a fresh paper from arXiv.',
+    role: 'Publisher',
+    bio: 'HexAstro explains the fundamentals of astrophysics and pairs each one with a fresh paper from arXiv. Drafts are prepared with AI and reviewed by a human editor before they are published.',
   },
-  'alex-morgan': {
-    id: 'alex-morgan',
-    name: 'Dr. Alex Morgan',
-    avatar: 'https://i.pravatar.cc/100?img=11',
-    role: 'Lead Researcher & Publisher',
-    bio: 'Alex is an astrophysicist specializing in cosmological simulations and machine learning applications in astrophysics.',
-  }
+  'ashad-ahmad': {
+    id: 'ashad-ahmad',
+    name: 'Ashad Ahmad',
+    avatar: '/authors/ashad-ahmad.webp',
+    role: 'Senior Research Fellow in High-Energy Astrophysics',
+    bio: 'I work on blazars at the Physical Research Laboratory (PRL), Ahmedabad: how relativistic jets accelerate particles to extreme energies, and the multi-messenger emission they produce. I also observe blazars from Mount Abu Observatory.',
+    socials: {
+      website: 'https://ashadahmad7869.github.io/',
+    },
+  },
+}
+
+export function getRegisteredAuthor(id: string): Author | undefined {
+  return authorsRegistry[id]
 }
 
 export interface AdjacentArticles {
@@ -138,6 +145,7 @@ export class LocalContentService implements IContentService {
       date: data.date || '',
       readTime: readTime,
       author,
+      reviewer: data.reviewedBy ? authorsRegistry[data.reviewedBy] : undefined,
       tags: data.tags || [],
       featured: data.featured === true,
       headings,
