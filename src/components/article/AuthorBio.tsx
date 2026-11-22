@@ -1,13 +1,19 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Author } from '@/types/content'
+import SocialLinks from './SocialLinks'
+import { getRegisteredAuthor } from '@/lib/services/contentService'
 
 interface AuthorBioProps {
   author: Author
+  /** Small label above the name, e.g. "Drafted by" or "Reviewed by" */
+  label?: string
 }
 
-export default function AuthorBio({ author }: AuthorBioProps) {
+export default function AuthorBio({ author, label }: AuthorBioProps) {
+  const hasProfile = Boolean(getRegisteredAuthor(author.id))
   return (
-    <div 
+    <div
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -16,9 +22,9 @@ export default function AuthorBio({ author }: AuthorBioProps) {
         borderRadius: '12px',
         border: '1px solid var(--border-color)',
         backgroundColor: 'var(--bg-secondary)',
-        marginTop: '3rem',
+        marginTop: '1.5rem',
         alignItems: 'center'
-      }} 
+      }}
       className="author-bio-container"
     >
       <div style={{ flexShrink: 0, position: 'relative', width: '80px', height: '80px' }}>
@@ -31,9 +37,16 @@ export default function AuthorBio({ author }: AuthorBioProps) {
         />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', flex: 1 }}>
+        {label && (
+          <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-secondary)', fontWeight: 600 }}>
+            {label}
+          </span>
+        )}
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
           <h4 style={{ margin: 0, fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-            {author.name}
+            {hasProfile ? (
+              <Link href={`/authors/${author.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>{author.name}</Link>
+            ) : author.name}
           </h4>
           {author.role && (
             <span style={{ fontSize: '0.75rem', color: 'var(--accent-blue)', fontWeight: 600 }}>
@@ -44,6 +57,7 @@ export default function AuthorBio({ author }: AuthorBioProps) {
         <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           {author.bio || 'Scientific writer and contributor at HexAstro.'}
         </p>
+        <SocialLinks socials={author.socials} />
       </div>
     </div>
   )

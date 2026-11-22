@@ -221,10 +221,13 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 ) : post.coverCredit}
               </p>
             )}
-            {post.aiDrafted && <AIDisclosure />}
+            {post.aiDrafted && <AIDisclosure reviewerName={post.reviewer?.name} />}
           </article>
           
-          <AuthorBio author={authorObj} />
+          <div style={{ marginTop: '3rem' }}>
+            <AuthorBio author={authorObj} label={post.aiDrafted ? 'Drafted by' : 'Written by'} />
+            {post.reviewer && <AuthorBio author={post.reviewer} label="Reviewed by" />}
+          </div>
           
           <ArticleNavigation previous={adjacent.previous} next={adjacent.next} />
           

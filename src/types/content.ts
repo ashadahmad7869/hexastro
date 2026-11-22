@@ -8,6 +8,7 @@ export interface Author {
     twitter?: string
     github?: string
     linkedin?: string
+    website?: string
   }
 }
 
@@ -27,6 +28,7 @@ export interface Article {
   date: string
   readTime: string
   author: Author | string
+  reviewer?: Author
   tags: string[]
   featured: boolean
   headings: Heading[]
@@ -35,6 +37,8 @@ export interface Article {
   updated?: string
   pinned?: boolean
   draft?: boolean
+  /** Kept in the repo but never shown on the production site */
+  archived?: boolean
   aiDrafted?: boolean
   syllabusId?: string
   relatedSlug?: string
