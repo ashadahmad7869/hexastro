@@ -1,0 +1,128 @@
+---
+title: "A Blazar's Neat Long-Term Pattern Falls Apart When You Watch It Hour by Hour"
+date: "2026-11-21"
+excerpt: "Over 17 years, the gamma rays and visible light from blazar 3C 454.3 rise and fall together. Watched in 6-hour slices, that partnership turns out to be many different behaviours averaged into one."
+tags: ["Black holes", "Gamma rays", "Variability"]
+author: "hexastro"
+contentType: "exploration"
+difficulty: "Intermediate"
+aiDrafted: true
+arxivId: "2611.25125"
+paperUrl: "https://arxiv.org/abs/2611.25125"
+paperAuthors: ["G. Panebianco", "M. Tavani", "V. Vittorini", "P. Coppi", "A. Bulgarelli", "C. M. Raiteri", "M. Villata"]
+publishYear: 2026
+journalName: "Astronomy & Astrophysics (accepted)"
+coverImage: "/images/paper-2611-25125/cover.webp"
+coverCredit: "NASA's Goddard Space Flight Center Conceptual Image Lab (public domain)"
+coverSourceUrl: "https://svs.gsfc.nasa.gov/14922"
+---
+
+Some astronomical objects behave in a way that looks simple from a distance. The blazar 3C 454.3 is one. For years, astronomers have noticed that when its gamma rays brighten, its visible light usually brightens too. Plot one against the other and you get a clean upward trend. It's one of the textbook pieces of evidence for the simplest model of how these objects shine.
+
+A team led by Gabriele Panebianco at INAF in Bologna has now taken that pattern apart. They went back over 17 years of gamma-ray and optical data and watched the blazar in slices as short as 6 hours, sometimes 3. The long-term trend survives. But up close it turns out to be an average over many different behaviours, and no single version of the simple model can produce all of them. The paper has been accepted in *Astronomy & Astrophysics*.
+
+## The backstory: one crowd of electrons, two kinds of light
+
+A **blazar** is a galaxy whose central supermassive black hole is firing a jet of plasma almost straight at us. 3C 454.3 sits at a redshift of 0.859, so its light set out roughly seven billion years ago. Its jet points within a degree or two of our line of sight. That alignment boosts its brightness enormously and speeds up its flickering, the way a siren's pitch rises when it races towards you. In November 2010 it briefly became the brightest gamma-ray source in the entire sky.
+
+The light from the jet comes in two big humps. The first is **synchrotron** light. Unlike a star's glow it is *not* thermal: it comes from fast electrons spiralling around magnetic field lines, and it has no single temperature. In 3C 454.3 that synchrotron hump covers the infrared and visible. The second hump sits up in gamma rays. In the standard picture, the same electrons make it by colliding with lower-energy photons and kicking them up to enormous energies. This is **inverse Compton** scattering.
+
+Where do those lower-energy photons come from? There are two options:
+
+- **The electrons' own synchrotron light** (*synchrotron self-Compton*, SSC).
+- **Light from outside the jet**: the accretion disc, or gas clouds around the black hole that glow in the disc's light (*external Compton*, EC).
+
+The simplest version is the **one-zone model**: one compact blob of electrons makes both humps. It makes a sharp prediction. If the blob brightens because it gains more electrons, gamma rays should scale with optical light to the first power in the EC case. In the SSC case they should scale as its square. On a log-log plot that's a slope, written η, of exactly 1 or exactly 2.
+
+Think of it like a duet heard from the back of a hall. If two voices always swell and fade together, the simplest guess is a single singer switching between two microphones. The slope tells you which microphone setup it is.
+
+## What they did
+
+The team combined gamma-ray data from two satellites. AGILE, an Italian mission, covers 2007 to 2024. NASA's Fermi covers August 2008 to the end of 2024. For optical light they used R-band data from the Whole Earth Blazar Telescope (WEBT), a collaboration of observatories around the globe, plus public archives. That gave them coverage from mid-2004 to mid-2023.
+
+They built gamma-ray light curves with bins of 48, 24, 12, 6 and, for the brightest flare, 3 hours. Then they matched each bin with simultaneous optical points.
+
+For every bin they also calculated the **Compton dominance**, a simple ratio: how much power comes out at 1 GeV in gamma rays compared with the visible R band. It is a running measure of which hump is winning.
+
+<Figure
+  src="/images/paper-2611-25125/fig1-light-curves.webp"
+  alt="Two stacked light curves of 3C 454.3 from 2004 to 2025. Top: gamma-ray flux on a log scale, in red (AGILE), blue (Fermi daily) and orange (Fermi monthly), with big flares in 2009 to 2010 and a deep low state in 2011 to 2012. Bottom: optical R-band flux showing matching peaks. Grey bands mark 14 selected flaring periods."
+  caption="Seventeen years of 3C 454.3. Top: gamma rays from AGILE (red) and Fermi (blue; orange during the quiet 2011 to 2012 stretch, when the source was too faint for daily points). Bottom: visible light. The grey bands are the 14 flaring epochs the team zoomed in on. By eye, the two panels clearly move together."
+  credit="Panebianco et al. (2026), Fig. 1"
+  license="CC BY-SA 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/"
+  sourceUrl="https://arxiv.org/abs/2611.25125"
+/>
+
+## What they found
+
+**The long-term link is real, but the slope is wrong for the simple model.** Across the whole dataset the correlation is strong: a rank correlation of 0.80 to 0.87, depending on bin size. The slope comes out at about 1.6 to 1.7. That is neither 1 nor 2, so neither simple version of the one-zone model fits on its own. The scatter around the trend is also large, about a quarter of a decade (a factor of roughly 1.7 either way).
+
+**Zoom in, and each flare follows its own rules.** The team picked 14 flaring epochs and fitted each one separately. The correlation strength ranges from weak (0.20) to strong (0.81). The slopes range from 0.4 to 2.0. Some epochs follow a slope near 1, several sit between 1.1 and 1.6, and two are close to 2. Others are barely correlated at all.
+
+<Figure
+  src="/images/paper-2611-25125/fig4-epochs.webp"
+  alt="A 4 by 4 grid of scatter plots of gamma-ray flux against optical flux, one per flaring epoch, each with an orange best-fit line and band. Slopes differ visibly between panels, from nearly flat to steep."
+  caption="Same blazar, 14 different relationships. Each panel is one flaring epoch, gamma rays against visible light. The black dashed lines show slopes of 1 and 2, what the simplest model predicts; the dotted line is the 17-year average. The orange fits wander from nearly flat (top left) to steep (E18), and their spread differs too."
+  credit="Panebianco et al. (2026), Fig. 4"
+  license="CC BY-SA 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/"
+  sourceUrl="https://arxiv.org/abs/2611.25125"
+/>
+
+**Solo performances.** In several epochs one band flares while the other barely moves. These are **orphan flares**. Fast gamma-ray orphans, lasting under 6 hours, appear in four epochs. Optical orphans appear in five. In a few cases a burst of gamma-ray activity seems to follow a fast optical flare by 7 to 10 days. That is the sort of delay predicted by "mirror" models, in which jet light bounces off nearby gas and comes back as seed photons. The authors say proper modelling is needed before reading too much into it.
+
+In duet terms, one singer sometimes goes solo. This is also where the analogy breaks. Two real singers are independent, but here both humps come from the same electrons. A solo therefore needs something that changes only one microphone: the magnetic field (which drives the synchrotron light) or the supply of outside photons (which feeds the gamma rays).
+
+**The balance swings fast.** In quiet times the Compton dominance sits around 5 to 10. During flares it has a long tail reaching 45 to 120. The brightest flare, in November 2010, shows this best.
+
+<Figure
+  src="/images/paper-2611-25125/fig5-e10b.webp"
+  alt="Three stacked panels for November to December 2010. Top: gamma-ray flux in 24-hour bins (orange) and 3-hour bins (blue), with a sharp peak around 18 to 20 November. Middle: optical flux with a matching peak. Bottom: Compton dominance jumping from about 30 to over 100, with the 3-hour points scattering widely."
+  caption="The record flare of November 2010, in daily bins (orange) and 3-hour bins (blue). Daily data suggest one smooth four-day outburst. The 3-hour data show several sub-flares, and a gamma-to-optical ratio (bottom) that drops from about 100 to 60 and climbs back within hours."
+  credit="Panebianco et al. (2026), Fig. 5"
+  license="CC BY-SA 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/"
+  sourceUrl="https://arxiv.org/abs/2611.25125"
+/>
+
+**Hardness and dominance don't go together.** The team also tracked the gamma-ray spectrum: how much of the gamma-ray power sits at higher energies. A flare in 2013 showed the strongest hardening in the sample. Yet its Compton dominance stayed at quiet-state levels, under 10. The 2010 flare hardened too, and its dominance shot up to around 100. So the two numbers are tracking different things about the electrons and their surroundings.
+
+## Why it matters
+
+The simple one-zone picture is popular because it is tractable. A single blob with a handful of parameters can be fitted to one snapshot of a blazar's spectrum. This paper suggests that for 3C 454.3, a good fit at one moment doesn't mean the same blob explains the next one.
+
+The authors also do a back-of-envelope check on the background light. Gas clouds lit by a steady accretion disc should hold the Compton dominance around 20 to 30. That roughly matches the quiet baseline, once you allow for the disc's own glow diluting the optical light. But the disc changes over months to years, too slowly to drive swings that happen in hours. Instead they point to small, short-lived structures. One option is a blob of jet plasma passing close to a single gas cloud and briefly seeing two to three times more light. That could push the dominance to 40 to 60 over a couple of hours. Mirror effects could push it towards 100.
+
+There is a size argument too. Nothing can flicker faster than light can cross it. The fastest changes here take 3 hours or less. Taken at face value, that would cap the black hole at roughly 200 million solar masses, assuming the standard boost factor. The measured mass is about 680 million. The usual way out is that the light doesn't come from a region as big as the black hole. It comes from compact pockets within the jet.
+
+This also explains a long-running muddle. Over the years, individual flares of 3C 454.3 have been modelled as EC, SSC, a mixture, or several zones. If each flare really is a different regime, those papers may all have been right about their own flare.
+
+## The fine print
+
+A sceptic's first question: is the "complexity" just noise? Six-hour gamma-ray bins have bigger error bars than daily ones, and noise alone would scatter the points. The authors accept that part of it is: the 6-hour correlation is slightly weaker than the daily one, partly because of the larger uncertainties. But they argue the structure in the brightest flare, such as the separate clusters of points and the crossing tracks in its gamma-ray spectrum, cannot be explained by measurement errors alone.
+
+Other caveats, all from the paper:
+
+- **The selection favours gamma rays.** Epochs were chosen when the gamma-ray flux was high. That probably makes gamma-ray orphans look more common than optical ones.
+- **The disc contaminates the optical light.** In faint states, the accretion disc's own thermal glow adds to the R band but not to the gamma rays. That dilutes the correlation and lowers the Compton dominance at low flux.
+- **The Compton dominance here is a proxy.** It compares power at two fixed points, not the true peaks of the two humps. A full broadband model that tracks moving peaks might change some interpretations.
+- **The early epochs are thinner.** The three AGILE-only epochs from 2007 to 2008 had sparser coverage and were analysed together in daily bins.
+- **Interpretation, not modelling.** The cloud fly-by and mirror scenarios are order-of-magnitude arguments. Nobody has yet fitted them to these flares in detail.
+
+What would settle it is denser coverage, especially across more bands at once. The authors point to the Cherenkov Telescope Array Observatory, NASA's COSI gamma-ray mission, and the Rubin Observatory's sky survey, all of which should catch blazar flickers on short timescales. Their AGILE and Fermi light curves are public, so anyone can test a model against them.
+
+## Jargon box
+
+- **Blazar**: an active galaxy whose jet points almost directly at Earth, making it bright and rapidly variable.
+- **Synchrotron radiation**: light from fast electrons spiralling in a magnetic field; not thermal.
+- **Inverse Compton scattering**: a fast electron hits a low-energy photon and boosts it to much higher energy, here up to gamma rays.
+- **SSC / EC**: synchrotron self-Compton (the jet's own light gets boosted) and external Compton (light from outside the jet gets boosted).
+- **One-zone model**: the assumption that a single compact region produces all the observed light.
+- **Compton dominance**: here, the ratio of gamma-ray power at 1 GeV to optical power in the R band.
+- **Orphan flare**: a flare seen in one band with no matching flare in the other.
+- **Correlation slope (η)**: how steeply gamma-ray flux changes with optical flux on a log-log plot.
+
+## The paper
+
+G. Panebianco, M. Tavani, V. Vittorini, P. Coppi, A. Bulgarelli, C. M. Raiteri and M. Villata, "Intra-day variability of the gamma-ray/optical emission of 3C 454.3: the complexity beyond the long-term correlation", *Astronomy & Astrophysics* (accepted, 2026). [arXiv:2611.25125](https://arxiv.org/abs/2611.25125)
