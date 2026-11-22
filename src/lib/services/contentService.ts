@@ -21,7 +21,7 @@ export const authorsRegistry: Record<string, Author> = {
     id: 'ashad-ahmad',
     name: 'Ashad Ahmad',
     avatar: '/authors/ashad-ahmad.webp',
-    role: 'Senior Research Fellow in High-Energy Astrophysics',
+    role: 'Senior Research Fellow',
     bio: 'I work on blazars at the Physical Research Laboratory (PRL), Ahmedabad: how relativistic jets accelerate particles to extreme energies, and the multi-messenger emission they produce. I also observe blazars from Mount Abu Observatory.',
     socials: {
       website: 'https://ashadahmad7869.github.io/',
@@ -97,7 +97,7 @@ export class LocalContentService implements IContentService {
 
     const articles = mdxFiles
       .map(file => this.readArticle(file.replace(/\.mdx$/, '')))
-      .filter(article => showDrafts || !article.draft)
+      .filter(article => showDrafts || (!article.draft && !article.archived))
 
     // Sort by date descending
     return articles.sort((a, b) => (a.date > b.date ? -1 : 1))
@@ -105,8 +105,8 @@ export class LocalContentService implements IContentService {
 
   getArticleBySlug(slug: string): Article {
     const article = this.readArticle(slug)
-    if (article.draft && !showDrafts) {
-      throw new Error(`Article with slug "${slug}" is a draft`)
+    if ((article.draft || article.archived) && !showDrafts) {
+      throw new Error(`Article with slug "${slug}" is a draft or archived`)
     }
     return article
   }
@@ -154,6 +154,7 @@ export class LocalContentService implements IContentService {
       updated,
       pinned,
       draft: data.draft === true,
+      archived: data.archived === true,
       aiDrafted: data.aiDrafted === true,
       syllabusId: data.syllabusId,
       relatedSlug: data.relatedSlug,

@@ -37,6 +37,8 @@ export interface Article {
   updated?: string
   pinned?: boolean
   draft?: boolean
+  /** Kept in the repo but never shown on the production site */
+  archived?: boolean
   aiDrafted?: boolean
   syllabusId?: string
   relatedSlug?: string
