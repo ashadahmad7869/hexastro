@@ -1,0 +1,123 @@
+---
+title: "Telescopes, Detectors and Observing Across the Spectrum"
+date: "2026-11-26"
+excerpt: "A telescope's main job isn't to magnify. It's a bucket for catching light, and the hard part is everything that happens to that light before and after it lands."
+tags: ["Foundations", "Observational", "Instrumentation"]
+author: "hexastro"
+reviewedBy: "ashad-ahmad"
+contentType: "guide"
+difficulty: "Beginner"
+syllabusId: "telescopes-and-detectors"
+prerequisites: ["Light, Spectra and What Starlight Tells Us"]
+aiDrafted: true
+coverImage: "/images/telescopes-and-detectors/cover.webp"
+coverCredit: "F. Kamphues/ESO, CC BY 4.0"
+coverSourceUrl: "https://www.eso.org/public/images/16fkc17261-cc/"
+---
+
+Ask most people what a telescope does and they'll say it makes things bigger. That's the least important thing it does. Most stars are so far away that no telescope ever built can show one as anything but a point, however much you magnify it. What a big telescope really does is catch more light.
+
+So think of a telescope as a bucket left out in the rain. Starlight arrives as a thin drizzle of **photons**, individual packets of light energy, and the bigger the bucket, the more drops you catch in a given time. This guide follows those drops: how the bucket is built, what blurs them on the way in, which colours of light never reach the ground at all, and what we put at the bottom of the bucket to count them. And there's a twist at the end: the sharpest "telescope" ever used is the size of the Earth and has almost no bucket at all.
+
+## A bucket for photons
+
+Stand in a dark field and wait twenty minutes. Your pupils open to about 7 mm across, and you start seeing stars you couldn't at first. That's the whole idea of a telescope in miniature: a wider opening catches more light.
+
+The amount of light collected goes with the area of the opening, so with the square of its diameter $D$. Swap your 7 mm pupil for one of the 8.2-metre mirrors of ESO's Very Large Telescope (VLT) in Chile, and the area goes up by a factor of about 1.4 million. A star the VLT sees in one second, your eye would need more than two weeks of continuous staring to gather the same light.
+
+That's why modern telescopes use **mirrors** rather than lenses. A lens can only be held by its edges, so lenses much bigger than about a metre sag under their own weight; a mirror can be supported from behind. The biggest single mirrors are around 8 metres; beyond that, telescopes are built from many smaller segments fitted together like floor tiles, like the 18 gold-coated hexagons of the 6.5-metre James Webb Space Telescope (JWST).
+
+## Sharpness: why size helps twice
+
+The bucket picture explains brightness, but it misses something. Light is also a wave, and a wave squeezing through an opening spreads out a little, a process called **diffraction**. You can see it by squinting at a streetlight through your eyelashes: the light smears into streaks. Every telescope does the same thing to every star, turning a perfect point into a tiny blur. The finest detail a telescope can separate, its **angular resolution**, is roughly
+
+$$
+\theta \approx 1.22\,\frac{\lambda}{D}
+$$
+
+In words: the smallest angle you can resolve, $\theta$ (in radians), is the wavelength $\lambda$ divided by the size of the opening, times a geometry factor of about 1.22 for a circular mirror. Bigger mirrors and shorter wavelengths give sharper pictures. For visible light at 500 nanometres, an 8.2-metre mirror could in principle resolve about 0.015 arcseconds (an arcsecond is 1/3,600 of a degree), roughly a 2 cm coin seen from about 270 km away.
+
+In practice, a ground-based telescope almost never gets there. Pockets of warmer and cooler air bend light by slightly different amounts, so starlight arrives scrambled. It's the same shimmer you see above a hot road in summer, and it's why stars twinkle. Astronomers call it **seeing**, and at the best mountain sites it blurs stars to around half an arcsecond to an arcsecond, dozens of times worse than the mirror could do on its own.
+
+Two fixes exist. The first is to leave: the Hubble Space Telescope's 2.4-metre mirror is small by today's standards, but above the air it delivers its full diffraction-limited sharpness of about 0.05 arcseconds. The second is **adaptive optics**: measure the scrambling hundreds of times a second using a bright reference star, and reshape a thin, flexible mirror to cancel it. Bright stars aren't always where you need them, so observatories make their own. The beams in the cover image are lasers that make sodium atoms about 90 km up glow, creating an artificial "guide star" wherever the telescope points.
+
+## Not every colour reaches the ground
+
+In [the light and spectra guide](/posts/light-and-spectra) we met the full electromagnetic spectrum, from radio waves metres long to gamma rays smaller than an atom. Our atmosphere lets very little of it through.
+
+<Figure
+  src="/images/telescopes-and-detectors/windows.png"
+  alt="Schematic chart of atmospheric opacity against wavelength on a log scale from 0.1 nanometres to 100 metres. Gamma rays, X-rays and ultraviolet are fully blocked. A narrow clear gap covers visible light. Infrared is patchy, with narrow clear windows and long blocked stretches. A broad clear window spans roughly 1 cm to 10 m in the radio, and the longest radio waves are blocked again by the ionosphere."
+  caption="Read it left to right: grey means blocked. Everything shorter than ultraviolet is stopped high in the atmosphere, then comes the narrow visible gap our eyes evolved for, a ragged stretch of infrared where water vapour chews most of the light, and a wide-open radio window. The shapes are schematic; real absorption depends on altitude and how much water is in the air."
+  credit="HexAstro"
+  license="CC BY 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+/>
+
+There are two big **atmospheric windows**: the visible (with a little near-ultraviolet and near-infrared either side) and the radio. Much of the infrared is absorbed by water vapour, which is why infrared observatories sit on high, dry mountains, ride in aircraft, or go to space. JWST works from about 1.5 million km away, shaded from the Sun and cold enough that its own warmth doesn't drown out the faint infrared glow it's looking for. Ultraviolet, X-rays and gamma rays are stopped completely, so those telescopes have to be in orbit.
+
+Each band also needs its own kind of bucket. Radio waves are long enough that a dish of metal mesh works as a mirror. X-rays are so energetic they punch straight into an ordinary mirror, so X-ray telescopes like NASA's Chandra use nested, barrel-shaped mirrors that the X-rays skim at shallow angles, like a stone skipping off a pond. Gamma rays can't be focused at all. Space detectors such as the Fermi Gamma-ray Space Telescope instead watch each gamma ray turn into a pair of particles and track them. And there's a loophole on the ground: when a very high-energy gamma ray hits the top of the atmosphere, it sets off a cascade of particles that gives off a faint, nanoseconds-long flash of blue light. Telescopes on the ground can catch that flash, so the gamma ray never has to reach them.
+
+## The bottom of the bucket
+
+Catching light is half the job. You then have to record it. For most of the 20th century, that meant **photographic plates**: glass coated with a light-sensitive emulsion. They were wasteful, recording only a few percent of the photons that hit them.
+
+The detector that replaced them, the **charge-coupled device** (CCD), was invented at Bell Labs in 1969 by Willard Boyle and George Smith, who shared the 2009 Nobel Prize in Physics for it. A CCD is a grid of tiny silicon wells, the pixels. When a photon hits the silicon, it knocks loose an electron, which gets trapped in that pixel's well. At the end of the exposure, the charges are shuffled out row by row and counted. The fraction of photons that get recorded, the **quantum efficiency**, can be above 90 percent for the best CCDs. Back to the bucket: plates were a bucket that leaked almost everything; a CCD keeps nearly every drop.
+
+Counting photons comes with an unavoidable limit. Photons arrive at random, like raindrops, so even a perfectly steady star gives slightly different counts in identical exposures. If you expect $N$ photons, the typical scatter is about $\sqrt{N}$, so the **signal-to-noise ratio** is
+
+$$
+\frac{S}{N} \approx \frac{N}{\sqrt{N}} = \sqrt{N}
+$$
+
+In words: to measure something twice as precisely, you need four times as many photons. Catch 100 photons and your brightness is uncertain by about 10%; catch 10,000 and it's about 1%. Doubling the precision means a bucket with twice the diameter, or four times the waiting.
+
+Other wavelengths need other detectors. Infrared arrays use materials more sensitive to low-energy photons and must be chilled, otherwise their own heat swamps the signal; JWST's mid-infrared instrument runs at about 7 degrees above absolute zero. Radio telescopes don't count photons one by one at all; they measure the wave's electric field directly, which turns out to make the next trick possible.
+
+## Where the bucket analogy breaks
+
+A rain bucket doesn't care where each drop came from, and it gets nothing sharper by being wider. A telescope does both: it records *where* the light came from, and its resolution comes from the wave nature of light, which buckets know nothing about. That's exactly where radio astronomy pulls its big trick.
+
+<Figure
+  src="/images/telescopes-and-detectors/alma.webp"
+  alt="Several large white ALMA radio dishes on a high, barren plateau at night, under a starry sky, with a green glow from lights on other antennas out of shot."
+  caption="Most ALMA dishes are 12 metres across, but they don't work alone. Signals from dozens of them, spread over kilometres of the Chajnantor plateau in Chile (about 5,000 m up, above much of the water vapour), are combined into a single image. The green light in this long exposure comes from lights on other antennas."
+  credit="ESO/B. Tafreshi (twanight.org)"
+  license="CC BY 4.0"
+  licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+  sourceUrl="https://www.eso.org/public/images/ann13002a/"
+/>
+
+Radio waves are long, so a single dish is blurry: a 100-metre dish working at 1 cm resolves about as finely as a perfect human eye could in visible light. But if you record the waves at two dishes far apart, with clocks precise enough to line up the crests, you can combine them as if they were small pieces of one giant mirror. This is **interferometry**, and the resolution is set by the distance between the dishes, the **baseline**, instead of the size of any one dish. ALMA, the Atacama Large Millimeter/submillimeter Array, can spread its antennas over up to about 16 km. The Event Horizon Telescope linked radio dishes across the whole planet to make the 2019 image of the black hole in the galaxy M87, reaching a resolution of roughly 20 millionths of an arcsecond.
+
+The catch is that a few dishes are a very sparse "mirror". You collect light only where the dishes are, so interferometers are sharp but often light-starved, and the image has to be pieced together from incomplete information.
+
+## What we still don't know
+
+The open questions in observing mostly come down to one: once you've built a big enough bucket, what limits you next?
+
+**Bigger buckets on the ground.** ESO's Extremely Large Telescope, with a segmented mirror 39 metres across, is under construction in Chile. Its sharpness only pays off if adaptive optics can correct the atmosphere over a far larger mirror than ever before, and doing that well across a wide field of view, not just near one guide star, is still an engineering frontier.
+
+**A brighter, busier sky.** Thousands of satellites now cross telescope images as bright streaks, and radio transmissions leak into bands that astronomers once had nearly to themselves. How much this will cost the most sensitive surveys, and how much software can clean up, is still unclear.
+
+**Too many photons to look at.** The Vera C. Rubin Observatory's 3.2-gigapixel camera is designed to map the whole visible southern sky every few nights, producing more data than any team can inspect by eye. Spotting the rare interesting event, a new supernova or a passing asteroid, in that flood is becoming as much a computing problem as an optical one.
+
+Galileo's telescopes of 1609 and 1610 were buckets a few centimetres wide, and that was enough to spot moons circling Jupiter. Today's largest mirrors have roughly 100,000 times their area, and we're still finding that the hard part is what happens to the rain before it lands.
+
+## Key terms
+
+- **Photon:** a single packet of light energy; telescopes collect them, detectors count them.
+- **Aperture:** the diameter of a telescope's main mirror or lens; light-gathering power grows with its square.
+- **Diffraction limit:** the sharpest detail a telescope can resolve, about $1.22\,\lambda/D$.
+- **Seeing:** the blurring of starlight by turbulence in Earth's atmosphere.
+- **Adaptive optics:** a flexible mirror that reshapes itself hundreds of times a second to cancel seeing.
+- **Atmospheric window:** a range of wavelengths that passes through the atmosphere to the ground.
+- **CCD:** a silicon chip that turns photons into electrons in a grid of pixels and counts them.
+- **Interferometry:** combining signals from separated telescopes so the baseline between them sets the resolution.
+
+## Further reading
+
+- OpenStax *Astronomy 2e*, [§6.1 Telescopes](https://openstax.org/books/astronomy-2e/pages/6-1-telescopes): light-gathering, mirrors and the history of big telescopes.
+- OpenStax *Astronomy 2e*, [§6.3 Visible-Light Detectors and Instruments](https://openstax.org/books/astronomy-2e/pages/6-3-visible-light-detectors-and-instruments): from plates to CCDs.
+- OpenStax *Astronomy 2e*, [§6.4 Radio Telescopes](https://openstax.org/books/astronomy-2e/pages/6-4-radio-telescopes): dishes and interferometry.
+- OpenStax *Astronomy 2e*, [§6.5 Observations outside Earth's Atmosphere](https://openstax.org/books/astronomy-2e/pages/6-5-observations-outside-earths-atmosphere): infrared, X-ray and gamma-ray observatories.
